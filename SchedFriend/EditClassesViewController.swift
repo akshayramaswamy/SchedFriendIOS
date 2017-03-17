@@ -45,13 +45,19 @@ class EditClassesViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     @IBAction func addFallClasses(_ sender: UIButton) {
-                var fallClasses:[String]?
+        var fallClasses:[String]?
         let userRef  = ref.child(self.user.uid)
         userRef.queryOrdered(byChild: "uid").observeSingleEvent(of: .value, with: { snapshot in
-            fallClasses = (snapshot.childSnapshot(forPath: "fallClasses").value as? Array<String>)!
-            if (!((fallClasses?.contains(self.selectedPick))!)){
-                        fallClasses?.append(self.selectedPick)
-   
+            if let retrievedFallClasses = (snapshot.childSnapshot(forPath: "fallClasses").value as? Array<String>){
+                if (!((retrievedFallClasses.contains(self.selectedPick)))){
+                    fallClasses = retrievedFallClasses
+                    fallClasses?.append(self.selectedPick)
+                    
+                } else {
+                    fallClasses = retrievedFallClasses
+                }
+            } else{
+                fallClasses = [self.selectedPick]
             }
             
             userRef.updateChildValues(["fallClasses":fallClasses ?? "No class"], withCompletionBlock: { (error, snapshot) in
@@ -61,18 +67,70 @@ class EditClassesViewController: UIViewController, UIPickerViewDelegate, UIPicke
                 } else {
                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
                 }
-
+                
             })
-
+            
         })
-        //var fallClasses = userRef.queryEqual(toValue: "fallClasses") as? Array<String>
-
+        
+        
     }
     
     @IBAction func addWinterClasses(_ sender: UIButton) {
+        var winterClasses:[String]?
+        let userRef  = ref.child(self.user.uid)
+        userRef.queryOrdered(byChild: "uid").observeSingleEvent(of: .value, with: { snapshot in
+            if let retrievedWinterClasses = (snapshot.childSnapshot(forPath: "winterClasses").value as? Array<String>){
+                if (!((retrievedWinterClasses.contains(self.selectedPick)))){
+                    winterClasses = retrievedWinterClasses
+                    winterClasses?.append(self.selectedPick)
+                    
+                } else {
+                    winterClasses = retrievedWinterClasses
+                }
+            } else{
+                winterClasses = [self.selectedPick]
+            }
+            
+            userRef.updateChildValues(["winterClasses":winterClasses ?? "No class"], withCompletionBlock: { (error, snapshot) in
+                if error != nil {
+                    
+                    print("oops, an error")
+                } else {
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+                }
+                
+            })
+            
+        })
     }
     
     @IBAction func addSpringClasses(_ sender: UIButton) {
+        var springClasses:[String]?
+        let userRef  = ref.child(self.user.uid)
+        userRef.queryOrdered(byChild: "uid").observeSingleEvent(of: .value, with: { snapshot in
+            if let retrievedSpringClasses = (snapshot.childSnapshot(forPath: "springClasses").value as? Array<String>){
+                if (!((retrievedSpringClasses.contains(self.selectedPick)))){
+                    springClasses = retrievedSpringClasses
+                    springClasses?.append(self.selectedPick)
+                    
+                } else {
+                    springClasses = retrievedSpringClasses
+                }
+            } else{
+                springClasses = [self.selectedPick]
+            }
+            
+            userRef.updateChildValues(["springClasses":springClasses ?? "No class"], withCompletionBlock: { (error, snapshot) in
+                if error != nil {
+                    
+                    print("oops, an error")
+                } else {
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+                }
+                
+            })
+            
+        })
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

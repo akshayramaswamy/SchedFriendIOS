@@ -60,9 +60,9 @@ class SchedFriendLoginViewController: UIViewController {
             let lastNameField = alert.textFields![1]
             let emailField = alert.textFields![2]
             let passwordField = alert.textFields![3]
-            let fallClasses = ["CS103", "PHIL2"]
-            let winterClasses = ["CS109", "CS193P"]
-            let springClasses = ["CS110", "ECON45"]
+            let fallClasses = [String]()
+            let winterClasses = [String]()
+            let springClasses = [String]()
             
             // 2
             FIRAuth.auth()!.createUser(withEmail: emailField.text!, password: passwordField.text!) { user, error in

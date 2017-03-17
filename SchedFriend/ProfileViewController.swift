@@ -51,14 +51,16 @@ UINavigationControllerDelegate{
                 
                 if (self.user.uid == snapshot.key){
                     
-                    let fallList:[String] = (snapshot.childSnapshot(forPath: "fallClasses").value as? Array<String>)!
-                    self.fallList = fallList
+                    if let fallList:[String] = (snapshot.childSnapshot(forPath: "fallClasses").value as? Array<String>){
+                        self.fallList = fallList
+                    }
+                    if let winter:[String] = (snapshot.childSnapshot(forPath: "winterClasses").value as? Array<String>){
+                        self.winterList = winter
+                    }
                     
-                    let winter:[String] = (snapshot.childSnapshot(forPath: "winterClasses").value as? Array<String>)!
-                    self.winterList = winter
-                    
-                    let spring:[String] = (snapshot.childSnapshot(forPath: "springClasses").value as? Array<String>)!
-                    self.springList = spring
+                    if let spring:[String] = (snapshot.childSnapshot(forPath: "springClasses").value as? Array<String>) {
+                        self.springList = spring
+                    }
                     self.classTableView.reloadData()
                     
                 }
@@ -78,8 +80,15 @@ UINavigationControllerDelegate{
             print(snapshot.key)
             if (self.user.uid == snapshot.key){
                 
-                let fallList:[String] = (snapshot.childSnapshot(forPath: "fallClasses").value as? Array<String>)!
-                self.fallList = fallList
+                if let fallList:[String] = (snapshot.childSnapshot(forPath: "fallClasses").value as? Array<String>) {
+                    self.fallList = fallList
+                }
+                if let winter:[String] = (snapshot.childSnapshot(forPath: "winterClasses").value as? Array<String>){
+                    self.winterList = winter
+                }
+                if let spring:[String] = (snapshot.childSnapshot(forPath: "springClasses").value as? Array<String>){
+                    self.springList = spring
+                }
                 self.classTableView.reloadData()
             }
         })
