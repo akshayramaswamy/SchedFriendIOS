@@ -94,6 +94,11 @@ class EditClassesViewController: UIViewController, UIPickerViewDelegate, UIPicke
         self.selectedPick = pickerData[row]
         
     }
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let str = pickerData[row]
+        return NSAttributedString(string: str, attributes: [NSForegroundColorAttributeName:UIColor.white])
+    }
     /*
      // MARK: - Navigation
      

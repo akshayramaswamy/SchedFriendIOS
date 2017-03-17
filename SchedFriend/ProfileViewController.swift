@@ -11,31 +11,44 @@ import FirebaseDatabase
 import Firebase
 import FirebaseAuth
 
-class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPopoverPresentationControllerDelegate{
-    @IBOutlet weak var profileImage: UIImageView!
+class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPopoverPresentationControllerDelegate,     UIImagePickerControllerDelegate,
+UINavigationControllerDelegate{
+    
     
     var user: User!
     var userProfile: UserProfile!
     var rootRef = FIRDatabase.database().reference()
     var userRef: FIRDatabaseReference?
-
+    
+    @IBOutlet weak var profileImage: UIImageView!
+    let picker = UIImagePickerController()
     override func viewDidLoad() {
         
         super.viewDidLoad()
-
+        picker.delegate = self
+        //UI designing
+        
+        segmentedClassView.layer.cornerRadius = 10.0
+        segmentedClassView.layer.borderColor = UIColor.blue.cgColor
+        segmentedClassView.layer.borderWidth = 1.0
+        segmentedClassView.layer.masksToBounds = true
+        profileImage.layer.borderWidth = 1
+        profileImage.layer.masksToBounds = false
+        profileImage.layer.borderColor = UIColor.black.cgColor
+        self.profileImage.layer.cornerRadius = self.profileImage.frame.height / 2;
+        self.profileImage.clipsToBounds = true;
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
+        
         FIRAuth.auth()!.addStateDidChangeListener { auth, user in
-
+            
             guard let user = user else { return }
             self.user = User(authData: user)
- 
+            
             self.userRef = self.rootRef.child(self.user.uid)
             print(self.user.uid)
-
+            
             self.userRef?.queryOrdered(byChild: "uid").observeSingleEvent(of: .value, with: { snapshot in
-                //print(snapshot)
-                print("transition")
-                print(snapshot.value)
+                
                 if (self.user.uid == snapshot.key){
                     
                     let fallList:[String] = (snapshot.childSnapshot(forPath: "fallClasses").value as? Array<String>)!
@@ -47,14 +60,14 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                     let spring:[String] = (snapshot.childSnapshot(forPath: "springClasses").value as? Array<String>)!
                     self.springList = spring
                     self.classTableView.reloadData()
-
+                    
                 }
             })
         }
-
         
-
-
+        
+        
+        
     }
     
     func loadList(){
@@ -67,24 +80,63 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
                 
                 let fallList:[String] = (snapshot.childSnapshot(forPath: "fallClasses").value as? Array<String>)!
                 self.fallList = fallList
-        self.classTableView.reloadData()
+                self.classTableView.reloadData()
             }
         })
     }
     
+    
+    @IBAction func uploadImage(_ sender: UIBarButtonItem) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            picker.allowsEditing = true
+            picker.sourceType = .photoLibrary
+            picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+            present(picker, animated: true, completion: nil)
+        } else {
+            noCamera()
+        }
+    }
+    //MARK: - Delegates
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
+    {
+        let chosenImage = info[UIImagePickerControllerEditedImage] as! UIImage //2
+        profileImage.contentMode = .scaleAspectFill //3
+        profileImage.image = chosenImage
+        
+        dismiss(animated:true, completion: nil) //5
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+        
+    }
+    func noCamera(){
+        let alertVC = UIAlertController(
+            title: "No Camera",
+            message: "Sorry, this device has no camera",
+            preferredStyle: .alert)
+        let okAction = UIAlertAction(
+            title: "OK",
+            style:.default,
+            handler: nil)
+        alertVC.addAction(okAction)
+        present(
+            alertVC,
+            animated: true,
+            completion: nil)
+    }
     var fallList:[String]?
     var winterList:[String]?
     var springList:[String]?
     @IBOutlet weak var segmentedClassView: UISegmentedControl!
     @IBOutlet weak var classTableView: UITableView!
-
+    
     @IBOutlet weak var profileName: UILabel!
-
+    
     @IBAction func signOut(_ sender: UIBarButtonItem) {
         try? FIRAuth.auth()!.signOut()
         dismiss(animated: true, completion: nil)
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         var returnValue = 0
@@ -109,7 +161,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         return returnValue
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         
@@ -146,7 +198,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print(" no segue")
         if segue.identifier == "popoverSegue" {
-            let popoverViewController = segue.destination 
+            let popoverViewController = segue.destination
             popoverViewController.modalPresentationStyle = UIModalPresentationStyle.popover
             popoverViewController.popoverPresentationController!.delegate = self
             print("segue")
@@ -156,6 +208,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     {
         return .none
     }
+    
+    
     
     
 }
