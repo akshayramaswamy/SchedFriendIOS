@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		22ED956267E2DAE53F0BA954 /* Pods_SchedFriend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CD7840603FF62F3F69172C8 /* Pods_SchedFriend.framework */; };
+		AF0E332D1E78AAC900ABD3D1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E332C1E78AAC900ABD3D1 /* Constants.swift */; };
+		AF42B0EB1E723A9F00C7F24D /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF42B0EA1E723A9F00C7F24D /* CloudKit.framework */; };
+		AF42B0ED1E732D5900C7F24D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF42B0EC1E732D5900C7F24D /* ProfileViewController.swift */; };
+		AF42B0EF1E732D8800C7F24D /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF42B0EE1E732D8800C7F24D /* SearchTableViewController.swift */; };
+		AF42B0F31E732DE800C7F24D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF42B0F21E732DE800C7F24D /* SettingsViewController.swift */; };
+		AF56F8681E7A5A6F0092D6CF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF56F8671E7A5A6F0092D6CF /* User.swift */; };
+		AF56F86A1E7A5B0D0092D6CF /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF56F8691E7A5B0D0092D6CF /* UserProfile.swift */; };
+		AF5F21BA1E7B37BD005B7B5F /* EditClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F21B91E7B37BD005B7B5F /* EditClassesViewController.swift */; };
+		AF6F05891E78ABD100C00E94 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6F05881E78ABD100C00E94 /* DataService.swift */; };
+		AF6F058B1E78AE8B00C00E94 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6F058A1E78AE8B00C00E94 /* CreateAccountViewController.swift */; };
+		AF6F05981E793FB300C00E94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF6F05971E793FB300C00E94 /* GoogleService-Info.plist */; };
+		AF6F059C1E79B16E00C00E94 /* SchedFriendLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6F059B1E79B16E00C00E94 /* SchedFriendLoginViewController.swift */; };
+		AFC16A831E7229F9009C6186 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC16A821E7229F9009C6186 /* AppDelegate.swift */; };
+		AFC16A8A1E7229F9009C6186 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFC16A881E7229F9009C6186 /* Main.storyboard */; };
+		AFC16A8C1E7229F9009C6186 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFC16A8B1E7229F9009C6186 /* Assets.xcassets */; };
+		AFC16A8F1E7229F9009C6186 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFC16A8D1E7229F9009C6186 /* LaunchScreen.storyboard */; };
+		AFC16A981E72346A009C6186 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFC16A971E72346A009C6186 /* MapKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		481FA177ADEEA092D72D8242 /* Pods-SchedFriend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchedFriend.release.xcconfig"; path = "Pods/Target Support Files/Pods-SchedFriend/Pods-SchedFriend.release.xcconfig"; sourceTree = "<group>"; };
+		6CD7840603FF62F3F69172C8 /* Pods_SchedFriend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SchedFriend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		86245DB19FB0F3FE797BB339 /* Pods-SchedFriend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchedFriend.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SchedFriend/Pods-SchedFriend.debug.xcconfig"; sourceTree = "<group>"; };
+		AF0E332C1E78AAC900ABD3D1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		AF42B0EA1E723A9F00C7F24D /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		AF42B0EC1E732D5900C7F24D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		AF42B0EE1E732D8800C7F24D /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		AF42B0F21E732DE800C7F24D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ../SettingsViewController.swift; sourceTree = "<group>"; };
+		AF56F8671E7A5A6F0092D6CF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AF56F8691E7A5B0D0092D6CF /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		AF5F21B91E7B37BD005B7B5F /* EditClassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditClassesViewController.swift; sourceTree = "<group>"; };
+		AF6426AE1E72360200821378 /* SchedFriend.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SchedFriend.entitlements; sourceTree = "<group>"; };
+		AF6F05881E78ABD100C00E94 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		AF6F058A1E78AE8B00C00E94 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		AF6F05971E793FB300C00E94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/Grocr-starter 3/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AF6F059B1E79B16E00C00E94 /* SchedFriendLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedFriendLoginViewController.swift; sourceTree = SOURCE_ROOT; };
+		AFC16A7F1E7229F9009C6186 /* SchedFriend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchedFriend.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFC16A821E7229F9009C6186 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AFC16A891E7229F9009C6186 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AFC16A8B1E7229F9009C6186 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AFC16A8E1E7229F9009C6186 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AFC16A901E7229F9009C6186 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFC16A971E72346A009C6186 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AFC16A7C1E7229F9009C6186 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFC16A981E72346A009C6186 /* MapKit.framework in Frameworks */,
+				AF42B0EB1E723A9F00C7F24D /* CloudKit.framework in Frameworks */,
+				22ED956267E2DAE53F0BA954 /* Pods_SchedFriend.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		133B9350E10A57F7D8CAF4DF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				86245DB19FB0F3FE797BB339 /* Pods-SchedFriend.debug.xcconfig */,
+				481FA177ADEEA092D72D8242 /* Pods-SchedFriend.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AFC16A761E7229F9009C6186 = {
+			isa = PBXGroup;
+			children = (
+				AFC16A811E7229F9009C6186 /* SchedFriend */,
+				AFC16A801E7229F9009C6186 /* Products */,
+				AFC16A961E72346A009C6186 /* Frameworks */,
+				133B9350E10A57F7D8CAF4DF /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		AFC16A801E7229F9009C6186 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AFC16A7F1E7229F9009C6186 /* SchedFriend.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AFC16A811E7229F9009C6186 /* SchedFriend */ = {
+			isa = PBXGroup;
+			children = (
+				AF6F059B1E79B16E00C00E94 /* SchedFriendLoginViewController.swift */,
+				AF42B0EC1E732D5900C7F24D /* ProfileViewController.swift */,
+				AF5F21B91E7B37BD005B7B5F /* EditClassesViewController.swift */,
+				AF56F8671E7A5A6F0092D6CF /* User.swift */,
+				AF56F8691E7A5B0D0092D6CF /* UserProfile.swift */,
+				AF42B0F21E732DE800C7F24D /* SettingsViewController.swift */,
+				AF6426AE1E72360200821378 /* SchedFriend.entitlements */,
+				AFC16A821E7229F9009C6186 /* AppDelegate.swift */,
+				AF6F058A1E78AE8B00C00E94 /* CreateAccountViewController.swift */,
+				AF6F05881E78ABD100C00E94 /* DataService.swift */,
+				AF42B0EE1E732D8800C7F24D /* SearchTableViewController.swift */,
+				AFC16A881E7229F9009C6186 /* Main.storyboard */,
+				AF0E332C1E78AAC900ABD3D1 /* Constants.swift */,
+				AFC16A8B1E7229F9009C6186 /* Assets.xcassets */,
+				AFC16A8D1E7229F9009C6186 /* LaunchScreen.storyboard */,
+				AFC16A901E7229F9009C6186 /* Info.plist */,
+				AF6F05971E793FB300C00E94 /* GoogleService-Info.plist */,
+			);
+			path = SchedFriend;
+			sourceTree = "<group>";
+		};
+		AFC16A961E72346A009C6186 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF42B0EA1E723A9F00C7F24D /* CloudKit.framework */,
+				AFC16A971E72346A009C6186 /* MapKit.framework */,
+				6CD7840603FF62F3F69172C8 /* Pods_SchedFriend.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AFC16A7E1E7229F9009C6186 /* SchedFriend */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFC16A931E7229F9009C6186 /* Build configuration list for PBXNativeTarget "SchedFriend" */;
+			buildPhases = (
+				DE4F8ED2D9BFA921F340FAA7 /* 📦 Check Pods Manifest.lock */,
+				AFC16A7B1E7229F9009C6186 /* Sources */,
+				AFC16A7C1E7229F9009C6186 /* Frameworks */,
+				AFC16A7D1E7229F9009C6186 /* Resources */,
+				0EB6FFE6583E8069820B8E7A /* 📦 Embed Pods Frameworks */,
+				FB4D7757F059E486710E71CC /* 📦 Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SchedFriend;
+			productName = SchedFriend;
+			productReference = AFC16A7F1E7229F9009C6186 /* SchedFriend.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AFC16A771E7229F9009C6186 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Akshay Ramaswamy";
+				TargetAttributes = {
+					AFC16A7E1E7229F9009C6186 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 4YJ7K53EH5;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = AFC16A7A1E7229F9009C6186 /* Build configuration list for PBXProject "SchedFriend" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AFC16A761E7229F9009C6186;
+			productRefGroup = AFC16A801E7229F9009C6186 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AFC16A7E1E7229F9009C6186 /* SchedFriend */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AFC16A7D1E7229F9009C6186 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFC16A8F1E7229F9009C6186 /* LaunchScreen.storyboard in Resources */,
+				AF6F05981E793FB300C00E94 /* GoogleService-Info.plist in Resources */,
+				AFC16A8C1E7229F9009C6186 /* Assets.xcassets in Resources */,
+				AFC16A8A1E7229F9009C6186 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0EB6FFE6583E8069820B8E7A /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SchedFriend/Pods-SchedFriend-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE4F8ED2D9BFA921F340FAA7 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FB4D7757F059E486710E71CC /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SchedFriend/Pods-SchedFriend-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AFC16A7B1E7229F9009C6186 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF42B0ED1E732D5900C7F24D /* ProfileViewController.swift in Sources */,
+				AF6F05891E78ABD100C00E94 /* DataService.swift in Sources */,
+				AF56F86A1E7A5B0D0092D6CF /* UserProfile.swift in Sources */,
+				AF0E332D1E78AAC900ABD3D1 /* Constants.swift in Sources */,
+				AF42B0EF1E732D8800C7F24D /* SearchTableViewController.swift in Sources */,
+				AF5F21BA1E7B37BD005B7B5F /* EditClassesViewController.swift in Sources */,
+				AF6F058B1E78AE8B00C00E94 /* CreateAccountViewController.swift in Sources */,
+				AF56F8681E7A5A6F0092D6CF /* User.swift in Sources */,
+				AFC16A831E7229F9009C6186 /* AppDelegate.swift in Sources */,
+				AF6F059C1E79B16E00C00E94 /* SchedFriendLoginViewController.swift in Sources */,
+				AF42B0F31E732DE800C7F24D /* SettingsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AFC16A881E7229F9009C6186 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AFC16A891E7229F9009C6186 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AFC16A8D1E7229F9009C6186 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AFC16A8E1E7229F9009C6186 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AFC16A911E7229F9009C6186 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AFC16A921E7229F9009C6186 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AFC16A941E7229F9009C6186 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86245DB19FB0F3FE797BB339 /* Pods-SchedFriend.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SchedFriend/SchedFriend.entitlements;
+				DEVELOPMENT_TEAM = 4YJ7K53EH5;
+				INFOPLIST_FILE = SchedFriend/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs193p.SchedFriend;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		AFC16A951E7229F9009C6186 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 481FA177ADEEA092D72D8242 /* Pods-SchedFriend.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SchedFriend/SchedFriend.entitlements;
+				DEVELOPMENT_TEAM = 4YJ7K53EH5;
+				INFOPLIST_FILE = SchedFriend/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs193p.SchedFriend;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AFC16A7A1E7229F9009C6186 /* Build configuration list for PBXProject "SchedFriend" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFC16A911E7229F9009C6186 /* Debug */,
+				AFC16A921E7229F9009C6186 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AFC16A931E7229F9009C6186 /* Build configuration list for PBXNativeTarget "SchedFriend" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFC16A941E7229F9009C6186 /* Debug */,
+				AFC16A951E7229F9009C6186 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AFC16A771E7229F9009C6186 /* Project object */;
+}
