@@ -10,6 +10,7 @@ import UIKit
 import FirebaseDatabase
 import Firebase
 import FirebaseAuth
+import FirebaseStorage
 
 class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIPopoverPresentationControllerDelegate,     UIImagePickerControllerDelegate,
 UINavigationControllerDelegate{
@@ -45,7 +46,7 @@ UINavigationControllerDelegate{
             self.user = User(authData: user)
             
             self.userRef = self.rootRef.child(self.user.uid)
-            print(self.user.uid)
+            //print(self.user.uid)
             
             self.userRef?.queryOrdered(byChild: "uid").observeSingleEvent(of: .value, with: { snapshot in
                 
@@ -60,6 +61,18 @@ UINavigationControllerDelegate{
                     
                     if let spring:[String] = (snapshot.childSnapshot(forPath: "springClasses").value as? Array<String>) {
                         self.springList = spring
+                    }
+                    
+                    if let profilePicture:String = (snapshot.childSnapshot(forPath: "profilePicture").value as? String) {
+                        if (profilePicture.characters.count != 0){
+                            if(self.user.uid == snapshot.key){
+                                let url = URL(string: profilePicture)
+                                if let data = try? Data(contentsOf: url!){
+                                    self.profileImage.image = UIImage(data: data)
+                                }
+                            }
+                        }
+                        
                     }
                     self.classTableView.reloadData()
                     
@@ -77,7 +90,7 @@ UINavigationControllerDelegate{
         //load data here
         self.userRef?.queryOrdered(byChild: "uid").observeSingleEvent(of: .value, with: { snapshot in
             //print(snapshot)
-            print(snapshot.key)
+            //print(snapshot.key)
             if (self.user.uid == snapshot.key){
                 
                 if let fallList:[String] = (snapshot.childSnapshot(forPath: "fallClasses").value as? Array<String>) {
@@ -89,6 +102,7 @@ UINavigationControllerDelegate{
                 if let spring:[String] = (snapshot.childSnapshot(forPath: "springClasses").value as? Array<String>){
                     self.springList = spring
                 }
+                
                 self.classTableView.reloadData()
             }
         })
@@ -111,6 +125,29 @@ UINavigationControllerDelegate{
         let chosenImage = info[UIImagePickerControllerEditedImage] as! UIImage //2
         profileImage.contentMode = .scaleAspectFill //3
         profileImage.image = chosenImage
+        
+        let storageRef = FIRStorage.storage().reference().child(self.user.uid)
+        if let uploadData = UIImagePNGRepresentation(profileImage.image!){
+            storageRef.put(uploadData, metadata: nil, completion:{
+                (metadata, error) in
+                
+                let imageURL = (metadata?.downloadURL())!
+                print (imageURL)
+                let ref = FIRDatabase.database().reference()
+                let userRef  = ref.child(self.user.uid)
+                let imageString = imageURL.absoluteString
+                print (imageString)
+                userRef.updateChildValues(["profilePicture": imageString as Any ], withCompletionBlock: { (error, snapshot) in
+                    print("updated profile pic")
+                    if error != nil {
+                        print("oops, an error with picture")
+                    }
+                    
+                })
+                
+                
+            })
+        }
         
         dismiss(animated:true, completion: nil) //5
     }

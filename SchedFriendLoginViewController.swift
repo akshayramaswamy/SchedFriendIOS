@@ -13,26 +13,21 @@ import FirebaseAuth
 class SchedFriendLoginViewController: UIViewController {
     var user: User!
     let ref = FIRDatabase.database().reference()
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // 1
 
-    }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         print("should")
         var goToLogin = false
         if identifier == "loginToProfile" {
             if (FIRAuth.auth()!.currentUser != nil){
-                print("use this")
-                goToLogin = true
+                
+                //goToLogin = true
             }
             
             FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
                 
                 if user == nil {
-                    // 3
+                    print("changed")
                     goToLogin = true
                 }
             }
@@ -63,6 +58,7 @@ class SchedFriendLoginViewController: UIViewController {
             let fallClasses = [String]()
             let winterClasses = [String]()
             let springClasses = [String]()
+            let profilePicture = String()
             
             // 2
             FIRAuth.auth()!.createUser(withEmail: emailField.text!, password: passwordField.text!) { user, error in
@@ -70,7 +66,7 @@ class SchedFriendLoginViewController: UIViewController {
                     // 3
                     FIRAuth.auth()!.signIn(withEmail: self.textFieldLoginEmail.text!, password: self.textFieldLoginPassword.text!)
                     self.user = User(authData: user!)
-                    let userProfile = UserProfile(uid: self.user.uid, firstName: firstNameField.text!, lastName: lastNameField.text!, fallClasses: fallClasses, winterClasses: winterClasses, springClasses: springClasses)
+                    let userProfile = UserProfile(uid: self.user.uid, firstName: firstNameField.text!, lastName: lastNameField.text!, fallClasses: fallClasses, winterClasses: winterClasses, springClasses: springClasses, profilePicture: profilePicture)
                     let userProfileRef = self.ref.child((user?.uid)!)
                     
                     // 4
@@ -120,15 +116,15 @@ class SchedFriendLoginViewController: UIViewController {
     }
     
     @IBAction func loginUser(_ sender: UIButton) {
+        print(textFieldLoginEmail.text!)
+        print(textFieldLoginPassword.text!)
         FIRAuth.auth()!.signIn(withEmail: textFieldLoginEmail.text!,
-                               password: textFieldLoginPassword.text!, completion: { (error, snapshot) in
-                                    if error != nil {
-                                    
-                                        print("oops, ahh error")
-                                    } else {
+                               password: textFieldLoginPassword.text!, completion: { (user, snapshot) in
+   
+                                        print("segued in log in")
                                         self.performSegue(withIdentifier: "loginToProfile", sender: nil)
-                                        print("completed")
-                                    }
+                                
+                                
         })
     
     }

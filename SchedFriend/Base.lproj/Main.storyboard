@@ -9,6 +9,25 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Class Videos-->
+        <scene sceneID="lzJ-hA-XGI">
+            <objects>
+                <viewController id="1Vi-5A-eYk" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1mD-Xf-sze"/>
+                        <viewControllerLayoutGuide type="bottom" id="5wf-Zp-WHY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="V9C-e9-xk3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Class Videos" id="0ns-Xr-lHm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2ab-te-BXT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="71" y="2132"/>
+        </scene>
         <!--Settings View Controller-->
         <scene sceneID="v84-RB-8c1">
             <objects>
@@ -115,6 +134,7 @@
                         <segue destination="Zzg-Cc-0Ul" kind="relationship" relationship="viewControllers" id="Goc-RK-8JF"/>
                         <segue destination="DMP-sg-nx1" kind="relationship" relationship="viewControllers" id="KI4-rW-dY8"/>
                         <segue destination="Ybv-Ku-cgc" kind="relationship" relationship="viewControllers" id="ReU-cM-Uck"/>
+                        <segue destination="1Vi-5A-eYk" kind="relationship" relationship="viewControllers" id="gwX-ny-yR9"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -229,7 +249,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ATc-nB-Wsb" id="eVj-d5-Xgn">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -351,7 +371,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="J9v-Jf-gVV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="featured" id="8VZ-DW-pjg"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="axz-dM-6rd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="axz-dM-6rd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

@@ -21,10 +21,11 @@ struct UserProfile {
     let fallClasses: [String]
     let winterClasses: [String]
     let springClasses: [String]
+    let profilePicture: String
     let ref: FIRDatabaseReference?
     
     
-    init(uid: String, firstName: String, lastName: String, fallClasses: Array<String>, winterClasses: Array<String>, springClasses: Array<String>, key: String = "") {
+    init(uid: String, firstName: String, lastName: String, fallClasses: Array<String>, winterClasses: Array<String>, springClasses: Array<String>, profilePicture: String, key: String = "") {
         self.key = key
         self.uid = uid
         self.firstName = firstName
@@ -32,7 +33,7 @@ struct UserProfile {
         self.fallClasses = fallClasses
         self.winterClasses = winterClasses
         self.springClasses = springClasses
-        
+        self.profilePicture = profilePicture
         self.ref = nil
     }
     
@@ -45,6 +46,7 @@ struct UserProfile {
         fallClasses = snapshotValue["fallClasses"] as! Array<String>
         winterClasses = snapshotValue["winterClasses"] as! Array<String>
         springClasses = snapshotValue["springClasses"] as! Array<String>
+        profilePicture = snapshotValue["profilePicture"] as! String
         ref = snapshot.ref
     }
     
@@ -55,7 +57,8 @@ struct UserProfile {
             "lastName": lastName,
             "fallClasses": fallClasses,
             "winterClasses": winterClasses,
-            "springClasses": springClasses
+            "springClasses": springClasses,
+            "profilePicture": profilePicture
         ]
     }
     

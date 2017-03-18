@@ -7,6 +7,7 @@ target 'SchedFriend' do
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
   pod 'FirebaseDatabase'
+  pod 'FirebaseStorage'
   # Pods for SchedFriend
 
 end
