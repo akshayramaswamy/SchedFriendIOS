@@ -28,25 +28,6 @@
             </objects>
             <point key="canvasLocation" x="71" y="2132"/>
         </scene>
-        <!--Settings View Controller-->
-        <scene sceneID="v84-RB-8c1">
-            <objects>
-                <viewController id="Zzg-Cc-0Ul" customClass="SettingsViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ISW-64-VGb"/>
-                        <viewControllerLayoutGuide type="bottom" id="fq3-wl-z8Z"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Fs3-B0-eDg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="more" id="PeJ-Vy-QeM"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ytZ-l0-jaU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="889" y="1792"/>
-        </scene>
         <!--Sched Friend Login View Controller-->
         <scene sceneID="5NA-Du-iKd">
             <objects>
@@ -130,11 +111,10 @@
                     </tabBar>
                     <connections>
                         <segue destination="J9v-Jf-gVV" kind="relationship" relationship="viewControllers" id="iBz-kd-2YY"/>
-                        <segue destination="K0F-gW-DgJ" kind="relationship" relationship="viewControllers" id="erS-Mr-WFt"/>
-                        <segue destination="Zzg-Cc-0Ul" kind="relationship" relationship="viewControllers" id="Goc-RK-8JF"/>
                         <segue destination="DMP-sg-nx1" kind="relationship" relationship="viewControllers" id="KI4-rW-dY8"/>
                         <segue destination="Ybv-Ku-cgc" kind="relationship" relationship="viewControllers" id="ReU-cM-Uck"/>
                         <segue destination="1Vi-5A-eYk" kind="relationship" relationship="viewControllers" id="gwX-ny-yR9"/>
+                        <segue destination="Vud-KB-w1S" kind="relationship" relationship="viewControllers" id="Jzk-8l-8cU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -142,33 +122,46 @@
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
         <!--Search Table View Controller-->
-        <scene sceneID="6hw-ux-vbb">
+        <scene sceneID="aAB-rq-oxf">
             <objects>
-                <tableViewController id="K0F-gW-DgJ" customClass="SearchTableViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZGb-MI-aWP">
+                <viewController id="Vud-KB-w1S" customClass="SearchTableViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hXU-vw-EYe"/>
+                        <viewControllerLayoutGuide type="bottom" id="BHV-60-sPh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yn2-rM-kE3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wl3-xc-kN8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bmb-Lo-5AW">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="lj1-LC-QG4">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lj1-LC-QG4" id="jkC-7S-Fy6">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="K0F-gW-DgJ" id="W9u-CV-U4g"/>
-                            <outlet property="delegate" destination="K0F-gW-DgJ" id="bJA-pn-7ki"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" selectedImage="first" systemItem="search" id="Cpn-4n-Wep"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XR8-td-0uT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="48n-u9-7Gw"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="10L-yJ-vjW" id="LWS-co-RFC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AVC-dg-QgB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="10L-yJ-vjW">
+                    <connections>
+                        <outlet property="delegate" destination="Vud-KB-w1S" id="3t6-gg-VSt"/>
+                        <outlet property="searchContentsController" destination="Vud-KB-w1S" id="kLy-Cy-U2E"/>
+                        <outlet property="searchResultsDataSource" destination="Vud-KB-w1S" id="7sw-W9-pZr"/>
+                        <outlet property="searchResultsDelegate" destination="Vud-KB-w1S" id="tlG-1Z-BW1"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="889" y="-429"/>
+            <point key="canvasLocation" x="877.60000000000002" y="-407.0464767616192"/>
         </scene>
         <!--Reminders-->
         <scene sceneID="0hU-Tb-5wz">
@@ -249,7 +242,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ATc-nB-Wsb" id="eVj-d5-Xgn">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -371,7 +364,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="J9v-Jf-gVV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="featured" id="8VZ-DW-pjg"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="axz-dM-6rd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="axz-dM-6rd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -387,6 +380,5 @@
     </scenes>
     <resources>
         <image name="default_profile" width="128" height="128"/>
-        <image name="first" width="30" height="30"/>
     </resources>
 </document>

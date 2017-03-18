@@ -47,6 +47,7 @@ class EditClassesViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBAction func addFallClasses(_ sender: UIButton) {
         var fallClasses:[String]?
         let userRef  = ref.child(self.user.uid)
+        let classRef = ref.child(self.selectedPick)
         userRef.queryOrdered(byChild: "uid").observeSingleEvent(of: .value, with: { snapshot in
             if let retrievedFallClasses = (snapshot.childSnapshot(forPath: "fallClasses").value as? Array<String>){
                 if (!((retrievedFallClasses.contains(self.selectedPick)))){
@@ -69,6 +70,37 @@ class EditClassesViewController: UIViewController, UIPickerViewDelegate, UIPicke
                 }
                 
             })
+            
+            //get first and last name of user
+            if let firstName = (snapshot.childSnapshot(forPath: "firstName").value as? String){
+                if let lastName = (snapshot.childSnapshot(forPath: "lastName").value as? String){
+                            //add name to class list
+                        classRef.queryOrdered(byChild: "students").observeSingleEvent(of: .value, with: { snapshot in
+                            if let retrievedStudents = (snapshot.childSnapshot(forPath: "students").value as? Array<String>){
+                                var students = retrievedStudents
+                                students.append(firstName + " " + lastName)
+                                classRef.updateChildValues(["students":students], withCompletionBlock: { (error, snapshot) in
+                                    if error != nil {
+                                        
+                                        print("oops, an error")
+                                    }
+                                    
+                                })
+                            } else{
+                                let students = [firstName + " " + lastName]
+                                classRef.updateChildValues(["students":students], withCompletionBlock: { (error, snapshot) in
+                                    if error != nil {
+                                        
+                                        print("oops, an error")
+                                    }
+                                    })
+                            }
+                    })
+                    
+                }
+            }
+                
+            
             
         })
         

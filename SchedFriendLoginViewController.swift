@@ -14,7 +14,9 @@ class SchedFriendLoginViewController: UIViewController {
     var user: User!
     let ref = FIRDatabase.database().reference()
 
-    
+    override func viewDidLoad() {
+        try? FIRAuth.auth()!.signOut()
+    }
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         print("should")
         var goToLogin = false
