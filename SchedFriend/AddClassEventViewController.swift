@@ -23,7 +23,7 @@ class AddClassEventViewController: UIViewController, UIPickerViewDelegate, UIPic
         var dateComponents = (Calendar.current as NSCalendar).components(calendarUnitFlags, from: Date())
         
         dateComponents.hour = 0
-        dateComponents.minute = 0
+        dateComponents.minute = 1
         dateComponents.second = 0
         
         return Calendar.current.date(from: dateComponents)!
@@ -32,7 +32,7 @@ class AddClassEventViewController: UIViewController, UIPickerViewDelegate, UIPic
         super.viewDidLoad()
         self.dayPicker.delegate = self
         self.dayPicker.dataSource = self
-        self.dayPicker.setValue(UIColor.white, forKey: "textColor")
+        self.eventStartDatePicker.setValue(UIColor.white, forKey: "textColor")
         // Input data into the Array:
         pickerData = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
        
@@ -98,7 +98,7 @@ class AddClassEventViewController: UIViewController, UIPickerViewDelegate, UIPic
         switch (self.selectedPick) {
         case "Monday":
             let monday = EKRecurrenceDayOfWeek(.monday)
-            newRule = EKRecurrenceRule(recurrenceWith: .monthly, interval: 1, daysOfTheWeek: [monday], daysOfTheMonth: nil, monthsOfTheYear: nil, weeksOfTheYear: nil, daysOfTheYear: nil, setPositions: nil, end: nil)
+            newRule = EKRecurrenceRule(recurrenceWith: .monthly , interval: 1, daysOfTheWeek: [monday], daysOfTheMonth: nil, monthsOfTheYear: nil, weeksOfTheYear: nil, daysOfTheYear: nil, setPositions: nil, end: nil)
         case "Tuesday":
             let tuesday = EKRecurrenceDayOfWeek(.tuesday)
             newRule = EKRecurrenceRule(recurrenceWith: .monthly, interval: 1, daysOfTheWeek: [tuesday], daysOfTheMonth: nil, monthsOfTheYear: nil, weeksOfTheYear: nil, daysOfTheYear: nil, setPositions: nil, end: nil)
