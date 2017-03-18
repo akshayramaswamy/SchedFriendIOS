@@ -16,6 +16,7 @@ class SchedFriendLoginViewController: UIViewController {
 
     override func viewDidLoad() {
         try? FIRAuth.auth()!.signOut()
+        self.hideKeyboardWhenTappedAround()
     }
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         print("should")
@@ -148,4 +149,14 @@ extension SchedFriendLoginViewController: UITextFieldDelegate {
         return true
     }
     
+}
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }

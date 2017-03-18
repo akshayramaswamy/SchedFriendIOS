@@ -15,6 +15,7 @@
 		AF56F8681E7A5A6F0092D6CF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF56F8671E7A5A6F0092D6CF /* User.swift */; };
 		AF56F86A1E7A5B0D0092D6CF /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF56F8691E7A5B0D0092D6CF /* UserProfile.swift */; };
 		AF5F21BA1E7B37BD005B7B5F /* EditClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F21B91E7B37BD005B7B5F /* EditClassesViewController.swift */; };
+		AF68E8931E7DD7D3003A779B /* AddClassEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF68E8921E7DD7D3003A779B /* AddClassEventViewController.swift */; };
 		AF6F05891E78ABD100C00E94 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6F05881E78ABD100C00E94 /* DataService.swift */; };
 		AF6F058B1E78AE8B00C00E94 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6F058A1E78AE8B00C00E94 /* CreateAccountViewController.swift */; };
 		AF6F05981E793FB300C00E94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF6F05971E793FB300C00E94 /* GoogleService-Info.plist */; };
@@ -40,6 +41,7 @@
 		AF56F8691E7A5B0D0092D6CF /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		AF5F21B91E7B37BD005B7B5F /* EditClassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditClassesViewController.swift; sourceTree = "<group>"; };
 		AF6426AE1E72360200821378 /* SchedFriend.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SchedFriend.entitlements; sourceTree = "<group>"; };
+		AF68E8921E7DD7D3003A779B /* AddClassEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClassEventViewController.swift; sourceTree = "<group>"; };
 		AF6F05881E78ABD100C00E94 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		AF6F058A1E78AE8B00C00E94 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		AF6F05971E793FB300C00E94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/Grocr-starter 3/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				AF6F058A1E78AE8B00C00E94 /* CreateAccountViewController.swift */,
 				AF6F05881E78ABD100C00E94 /* DataService.swift */,
 				AFC16A881E7229F9009C6186 /* Main.storyboard */,
+				AF68E8921E7DD7D3003A779B /* AddClassEventViewController.swift */,
 				AF0E332C1E78AAC900ABD3D1 /* Constants.swift */,
 				AFC16A8B1E7229F9009C6186 /* Assets.xcassets */,
 				AFC16A8D1E7229F9009C6186 /* LaunchScreen.storyboard */,
@@ -282,6 +285,7 @@
 				AF6F059C1E79B16E00C00E94 /* SchedFriendLoginViewController.swift in Sources */,
 				AF42B0F31E732DE800C7F24D /* SettingsViewController.swift in Sources */,
 				AFB7D17C1E7D2671004FFF28 /* FriendClassesViewController.swift in Sources */,
+				AF68E8931E7DD7D3003A779B /* AddClassEventViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
