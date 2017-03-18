@@ -344,6 +344,11 @@
                                                 <action selector="newSearch:" destination="a4F-ch-zc4" id="Cd6-W6-yHz"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Print" id="VQD-JY-Nbn">
+                                            <connections>
+                                                <action selector="printStudents:" destination="a4F-ch-zc4" id="l4H-eJ-gsx"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

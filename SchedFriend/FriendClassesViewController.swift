@@ -12,17 +12,28 @@ class FriendClassesViewController: UIViewController, UITableViewDataSource, UITa
     var classDisplay:Array<String> = []
     @IBOutlet weak var classTable: UITableView!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    @IBAction func printStudents(_ sender: UIBarButtonItem) {
+        let printController = UIPrintInteractionController.shared
+        // 2
+        let printInfo = UIPrintInfo(dictionary:nil)
+        printInfo.outputType = UIPrintInfoOutputType.general
+        printInfo.jobName = "print Job"
+        printController.printInfo = printInfo
+        // Assign a UIImage version of my UIView as a printing iten
+        printController.printingItem = self.view.toImage()
         
-        // Do any additional setup after loading the view.
+        // Do it
+        printController.present(from: self.view.frame, in: self.view, animated: true, completionHandler: nil)
+        // 3
+        //let classDisplayString = classDisplay.joined(separator: ",")
+        //let formatter = UIMarkupTextPrintFormatter(markupText: classDisplayString)
+        //formatter.perPageContentInsets = UIEdgeInsets(top: 72, left: 72, bottom: 72, right: 72)
+        //printController.printFormatter = formatter
+        
+        // 4
+        //printController.present(animated: true, completionHandler: nil)
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return classDisplay.count
@@ -48,4 +59,15 @@ class FriendClassesViewController: UIViewController, UITableViewDataSource, UITa
      }
      */
     
+}
+extension UIView {
+    func toImage() -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.main.scale)
+        
+        drawHierarchy(in: self.bounds, afterScreenUpdates: true)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
+    }
 }

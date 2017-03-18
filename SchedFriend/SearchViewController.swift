@@ -52,14 +52,15 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             // Filter the results
             filteredClasses = classes.filter { $0.name.lowercased().contains(searchController.searchBar.text!.lowercased()) }
         }
+        print(filteredClasses)
         
         self.tableView.reloadData()
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell 	{
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "cell")
         
-        cell.textLabel?.text = self.classes[indexPath.row].name
-        cell.detailTextLabel?.text = self.classes[indexPath.row].department
+        cell.textLabel?.text = self.filteredClasses[indexPath.row].name
+        cell.detailTextLabel?.text = self.filteredClasses[indexPath.row].department
         
         return cell
     }
