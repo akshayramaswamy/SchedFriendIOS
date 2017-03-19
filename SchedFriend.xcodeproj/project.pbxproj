@@ -98,6 +98,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AFB34FB41E7F1621002BDFEE /* Intro Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Intro Tutorial";
+			sourceTree = "<group>";
+		};
 		AFC16A761E7229F9009C6186 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +126,7 @@
 		AFC16A811E7229F9009C6186 /* SchedFriend */ = {
 			isa = PBXGroup;
 			children = (
+				AFB34FB41E7F1621002BDFEE /* Intro Tutorial */,
 				AF8513681E7E56D40034C894 /* PageOneViewController.swift */,
 				AF85136A1E7E56EC0034C894 /* PageTwoViewController.swift */,
 				AF8513621E7E4D410034C894 /* TutorialViewController.swift */,

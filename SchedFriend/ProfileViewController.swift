@@ -120,7 +120,7 @@ UINavigationControllerDelegate{
         }
     }
     //MARK: - Delegates
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
     {
         let chosenImage = info[UIImagePickerControllerEditedImage] as! UIImage //2
         profileImage.contentMode = .scaleAspectFill //3

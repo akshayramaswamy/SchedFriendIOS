@@ -72,8 +72,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("going to search")
-        
         if let classController = segue.destination as? FriendClassesViewController{
             let indexPath = self.tableView.indexPathForSelectedRow
             let text = self.filteredClasses[(indexPath?.row)!].name

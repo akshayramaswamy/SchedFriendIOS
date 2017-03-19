@@ -64,7 +64,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if gesture.state == .ended {
             let point = gesture.location(in: self.mapView)
             let coordinate = self.mapView.convert(point, toCoordinateFrom: self.mapView)
-            print(coordinate)
+            
             //Now use this coordinate to add annotation on map.
             let annotation = MKPointAnnotation()
             annotation.coordinate = coordinate
@@ -139,7 +139,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
     {
-        print("Error \(error)")
+        print("Error")
     }
 
     

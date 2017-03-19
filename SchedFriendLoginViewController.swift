@@ -88,8 +88,11 @@ class SchedFriendLoginViewController: UIViewController {
                     
                     
                 } else{
+                    let alert = UIAlertController(title: "Unable to sign up", message: (error?.localizedDescription)! , preferredStyle: .alert)
+                    let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alert.addAction(OKAction)
+                    self.present(alert, animated: true, completion: nil)
                     
-                    print (error?.localizedDescription as Any)
                 }
             }
             
@@ -129,6 +132,11 @@ class SchedFriendLoginViewController: UIViewController {
                                 if (!(user==nil)){
                                     print("segued in log in")
                                     self.performSegue(withIdentifier: "loginToProfile", sender: nil)
+                                } else {
+                                    let alert = UIAlertController(title: "Unable to log in", message: "Please try again", preferredStyle: .alert)
+                                    let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                                    alert.addAction(OKAction)
+                                    self.present(alert, animated: true, completion: nil)
                                 }
                                 
                                 
