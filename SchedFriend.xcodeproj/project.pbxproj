@@ -13,6 +13,8 @@
 		AF42B0ED1E732D5900C7F24D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF42B0EC1E732D5900C7F24D /* ProfileViewController.swift */; };
 		AF42B0F31E732DE800C7F24D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF42B0F21E732DE800C7F24D /* SettingsViewController.swift */; };
 		AF4BF5141E7E022200402934 /* ExploreCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4BF5131E7E022200402934 /* ExploreCoursesViewController.swift */; };
+		AF4BF5161E7E29FE00402934 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4BF5151E7E29FE00402934 /* MapViewController.swift */; };
+		AF4BF5181E7E2BD400402934 /* ClassLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4BF5171E7E2BD300402934 /* ClassLocation.swift */; };
 		AF56F8681E7A5A6F0092D6CF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF56F8671E7A5A6F0092D6CF /* User.swift */; };
 		AF56F86A1E7A5B0D0092D6CF /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF56F8691E7A5B0D0092D6CF /* UserProfile.swift */; };
 		AF5F21BA1E7B37BD005B7B5F /* EditClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F21B91E7B37BD005B7B5F /* EditClassesViewController.swift */; };
@@ -39,6 +41,8 @@
 		AF42B0EC1E732D5900C7F24D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AF42B0F21E732DE800C7F24D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ../SettingsViewController.swift; sourceTree = "<group>"; };
 		AF4BF5131E7E022200402934 /* ExploreCoursesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreCoursesViewController.swift; sourceTree = "<group>"; };
+		AF4BF5151E7E29FE00402934 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		AF4BF5171E7E2BD300402934 /* ClassLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassLocation.swift; sourceTree = "<group>"; };
 		AF56F8671E7A5A6F0092D6CF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AF56F8691E7A5B0D0092D6CF /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		AF5F21B91E7B37BD005B7B5F /* EditClassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditClassesViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 		AFC16A811E7229F9009C6186 /* SchedFriend */ = {
 			isa = PBXGroup;
 			children = (
+				AF4BF5171E7E2BD300402934 /* ClassLocation.swift */,
+				AF4BF5151E7E29FE00402934 /* MapViewController.swift */,
 				AFB7D1791E7CF825004FFF28 /* SearchViewController.swift */,
 				AF6F059B1E79B16E00C00E94 /* SchedFriendLoginViewController.swift */,
 				AF42B0EC1E732D5900C7F24D /* ProfileViewController.swift */,
@@ -289,6 +295,8 @@
 				AF6F059C1E79B16E00C00E94 /* SchedFriendLoginViewController.swift in Sources */,
 				AF42B0F31E732DE800C7F24D /* SettingsViewController.swift in Sources */,
 				AFB7D17C1E7D2671004FFF28 /* FriendClassesViewController.swift in Sources */,
+				AF4BF5181E7E2BD400402934 /* ClassLocation.swift in Sources */,
+				AF4BF5161E7E29FE00402934 /* MapViewController.swift in Sources */,
 				AF68E8931E7DD7D3003A779B /* AddClassEventViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

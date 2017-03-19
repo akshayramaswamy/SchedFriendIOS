@@ -189,7 +189,7 @@
         <!--Map-->
         <scene sceneID="q96-r2-Rxg">
             <objects>
-                <viewController id="DMP-sg-nx1" sceneMemberID="viewController">
+                <viewController id="DMP-sg-nx1" customClass="MapViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6kH-Rc-pow"/>
                         <viewControllerLayoutGuide type="bottom" id="yb0-bi-9NV"/>
@@ -199,17 +199,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="x9L-Ey-j4u">
-                                <rect key="frame" x="16" y="163" width="359" height="341"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" id="Q4E-Ot-cx3"/>
+                    <connections>
+                        <outlet property="mapView" destination="x9L-Ey-j4u" id="ToI-NO-BVi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dmZ-f3-1c8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="889" y="288"/>
+            <point key="canvasLocation" x="888.79999999999995" y="287.40629685157421"/>
         </scene>
         <!--Your Profile-->
         <scene sceneID="xqm-h6-ZFl">
