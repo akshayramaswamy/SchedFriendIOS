@@ -5,12 +5,13 @@
 //  Created by Akshay Ramaswamy on 3/18/17.
 //  Copyright © 2017 Akshay Ramaswamy. All rights reserved.
 //
+// This file uses WebKit to pull explorecourses webpage if student wants to get more
+// descriptions on classes to take
 
 import UIKit
 import WebKit
 
 class ExploreCoursesViewController: UIViewController, WKNavigationDelegate {
-
 
     var webView: WKWebView!
     
@@ -24,7 +25,6 @@ class ExploreCoursesViewController: UIViewController, WKNavigationDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let url = URL(string: "https://explorecourses.stanford.edu/")!
         print(url)
         print(webView)
@@ -36,16 +36,5 @@ class ExploreCoursesViewController: UIViewController, WKNavigationDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -16,13 +16,14 @@ class AddClassEventViewController: UIViewController, UIPickerViewDelegate, UIPic
     let eventStore = EKEventStore()
     @IBOutlet weak var eventNameTextField: UITextField!
     @IBOutlet weak var eventStartDatePicker: UIDatePicker!
-    
     @IBOutlet weak var dayPicker: UIPickerView!
+    
     var pickerData: [String] = [String]()
     var selectedPick:String = "Monday"
+    
+    /* Set initial date on date picker */
     func initialDatePickerValue() -> Date {
         let calendarUnitFlags: NSCalendar.Unit = [.year, .month, .day, .hour, .minute, .second]
-        
         var dateComponents = (Calendar.current as NSCalendar).components(calendarUnitFlags, from: Date())
         
         dateComponents.hour = 0
@@ -31,14 +32,14 @@ class AddClassEventViewController: UIViewController, UIPickerViewDelegate, UIPic
         
         return Calendar.current.date(from: dateComponents)!
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dayPicker.delegate = self
         self.dayPicker.dataSource = self
         self.eventStartDatePicker.setValue(UIColor.white, forKey: "textColor")
-        // Input data into the Array:
         pickerData = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
-        
+        //get access to calendar from user
         checkCalendarAuthorizationStatus()
         self.eventStartDatePicker.setDate(initialDatePickerValue(), animated: false)
         self.hideKeyboardWhenTappedAround()
@@ -46,7 +47,7 @@ class AddClassEventViewController: UIViewController, UIPickerViewDelegate, UIPic
         
     }
     
-    
+
     func requestAccessToCalendar() {
         eventStore.requestAccess(to: EKEntityType.event, completion: {
             (accessGranted: Bool, error: Error?) in
@@ -66,8 +67,9 @@ class AddClassEventViewController: UIViewController, UIPickerViewDelegate, UIPic
             }
         })
     }
+    
     @IBAction func addEvent(_ sender: UIButton) {
-        // Use Event Store to create a new calendar instance
+        // Use Event Store to get user's default calendar
         let calendarForEvent = eventStore.defaultCalendarForNewEvents
         
         
@@ -81,14 +83,11 @@ class AddClassEventViewController: UIViewController, UIPickerViewDelegate, UIPic
         newEvent.addRecurrenceRule(newRule)
         // Save the event using the Event Store instance
         do {
-            
             try eventStore.save(newEvent, span: .thisEvent, commit: true)
             let alert = UIAlertController(title: "Event added to calendar!", message: newEvent.title, preferredStyle: .alert)
             let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alert.addAction(OKAction)
             self.present(alert, animated: true, completion: nil)
-            
-            
         } catch {
             let alert = UIAlertController(title: "Event could not save", message: (error as NSError).localizedDescription, preferredStyle: .alert)
             let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -98,6 +97,7 @@ class AddClassEventViewController: UIViewController, UIPickerViewDelegate, UIPic
         }
     }
     
+    /* set recurrence rule for what days of the week we want the event to repeat */
     func getRecurrenceRule()->EKRecurrenceRule{
         var newRule = EKRecurrenceRule()
         switch (self.selectedPick) {
@@ -126,14 +126,11 @@ class AddClassEventViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     func checkCalendarAuthorizationStatus() {
         let status = EKEventStore.authorizationStatus(for: EKEntityType.event)
-        
         switch (status) {
         case EKAuthorizationStatus.notDetermined:
             // This happens on first-run
             self.requestAccessToCalendar()
         default: break
-            
-            
             
         }
         
@@ -142,6 +139,7 @@ class AddClassEventViewController: UIViewController, UIPickerViewDelegate, UIPic
         
     }
     
+    /* Set components of picker for days */
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -150,14 +148,11 @@ class AddClassEventViewController: UIViewController, UIPickerViewDelegate, UIPic
         return pickerData.count
     }
     
-    // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        // This method is triggered whenever the user makes a change to the picker selection.
-        // The parameter named row and component represents what was selected.
         self.selectedPick = pickerData[row]
         
     }
@@ -168,6 +163,7 @@ class AddClassEventViewController: UIViewController, UIPickerViewDelegate, UIPic
     }
 }
 
+/* Extension to resign keyboard when return key is hit */
 extension AddClassEventViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

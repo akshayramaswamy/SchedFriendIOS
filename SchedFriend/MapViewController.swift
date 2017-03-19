@@ -5,6 +5,12 @@
 //  Created by Akshay Ramaswamy on 3/18/17.
 //  Copyright © 2017 Akshay Ramaswamy. All rights reserved.
 //
+//  This file allows the user to view where their classes are on the map
+//  Their current location is pinned using CoreLocation
+//  We also allow them to click the accessory info button on pre pinned classes, which then redirects to apple maps
+//  and tells the user how to get their from their current location (extension written in ClassLocation file)
+//  Finally, the user can input their own classes by long pressing, which creates an alert to enter in the name of the
+//  the class they want to pin
 
 import UIKit
 import MapKit
@@ -15,21 +21,20 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var locationManager:CLLocationManager!
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         determineCurrentLocation()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
         centerMapOnLocation(location: initialLocation)
-        // Do any additional setup after loading the view.
+        // add pre-pinned locations
         addClassesToMap()
-
         mapView.delegate = self
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(addAnnotationOnLongPress(gesture:)))
         longPressGesture.minimumPressDuration = 1.0
         self.mapView.addGestureRecognizer(longPressGesture)
     }
+    
     func addClassesToMap(){
         let classLocation109 = ClassLocation(title: "CS109",
                                           locationName: "Bishop Auditorium",
@@ -59,16 +64,14 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
     
     }
+    
+    
     func addAnnotationOnLongPress(gesture: UILongPressGestureRecognizer) {
-        
         if gesture.state == .ended {
             let point = gesture.location(in: self.mapView)
             let coordinate = self.mapView.convert(point, toCoordinateFrom: self.mapView)
-            
-            //Now use this coordinate to add annotation on map.
             let annotation = MKPointAnnotation()
             annotation.coordinate = coordinate
-            //Set title and subtitle if you want
             let alert = UIAlertController(title: "New Class",
                                           message: "Enter in class and building name",
                                           preferredStyle: .alert)
@@ -104,6 +107,8 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                                                                   regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }
+    
+    //Core Location used
     func determineCurrentLocation()
     {
         locationManager = CLLocationManager()
@@ -112,21 +117,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         locationManager.requestAlwaysAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
-            //locationManager.startUpdatingHeading()
             locationManager.startUpdatingLocation()
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation:CLLocation = locations[0] as CLLocation
-        
-        // Call stopUpdatingLocation() to stop listening for location updates,
-        // other wise this function will be called every time when user location changes.
+        //stop listening for current location updated after initial pin
         manager.stopUpdatingLocation()
-        
         let center = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-        
         mapView.setRegion(region, animated: true)
         
         // Drop a pin at user's Current Location
@@ -142,7 +142,5 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         print("Error")
     }
 
-    
-    
     
 }
