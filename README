@@ -1,0 +1,37 @@
+user: aramaswa (Ramaswamy, Akshay)
+
+How I would grade this project:
+
+1) Breadth - 37 points
+- Maps API(2), CoreLocation(2), Event Kit(2), Datepicker(2), PickerView(2), ImagePicker/Camera library(2), PageController(2), SearchController(2),  WebKit(2), UINavigation/TabBar(2), UITableView/Controller/Cell(2), Modal Segue/Embed Segue(2), UIAlerts(2), Controls API (button, label, etc) (2), App Icons/Logos (2), segmented control(2), Popover segue(1), Gesture Recognizer(1), ContactsKit(1), local notifications(1), airprint(1), firebase (infinity)
+
+2) Miscellaneos API
+- random things you think I got - 4 points
+
+3) Not Covered In Lecture 
+-- 8 points (because of the double)
+-- over half the APIs I used were not taught in class
+
+4) Depth 
+-- 4 points
+-- I should definitely get 4 points for 3rd party integration, because I spent literally a week just getting firebase login and and user authentication to work without crashing (what a terrible cloud database!). This was especially difficult because Firebase recently updated in the past few months, so there is pretty much nothing on the internet to help you debug. I allow the user to store their profile picture on firebase (also very time consuming), and constantly update my schemas (pretty well designed I think) in realtime as the user changes their profile and looks up other people in their classses
+-- alternativly I went pretty in depth with event kit and map kit if you want to give me extra points there :) 
+
+5) Creativity
+-- 3 points
+-- This idea is completely my own, and I took this class because I really wanted to make an app that allowed people to see each other's class schedules.
+I even created a website for this last year (schedfriend.com) and I am currently rewriting the website in meteor.js. I think this idea has a lot of potential :) 
+
+6) UI Design 
+-- 3 points
+-- I put a lot of though into my design and used sketch to prototype my views. Just take a look at my tutorial upon sign up or my launch screen and you'll see how much effort I put in (even small things like creating circular profile pictures, or creating a popover segue on on iphone to add classes (was pretty difficult)
+
+7) Coding Style
+-- 3 points
+-- I used a lot of concepts from class -- using weak self to prevent memory leaks, using closures, dispatching off the main queue to prevent UI from lagging, using MVC (ie I have model files for creating objects in firebase, seperate from views). I used variable names that are self explanatory, commented and indented cleanly (ctrl-i thank god) and decomposed functions so code wasn't reused. 
+
+8) Stability and usability 
+-- 2 points - tested quite thoroughly, 99% positive it won't crash but please don't try to crash my app :) Firebase is pretty awful so if it crashes it is Firebase's fault for being slow and not keeping up with my beatiful UI. In hindsight I should have used cloudkit
+
+
+Total : 64 + 2 for rubric and 1 for slides = 67/50 points (man I should have taken this class for a letter!)
