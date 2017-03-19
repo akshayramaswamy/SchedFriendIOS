@@ -12,7 +12,7 @@
         <!--Explore Courses-->
         <scene sceneID="lzJ-hA-XGI">
             <objects>
-                <viewController id="1Vi-5A-eYk" customClass="ExploreCoursesViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="web" id="1Vi-5A-eYk" customClass="ExploreCoursesViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1mD-Xf-sze"/>
                         <viewControllerLayoutGuide type="bottom" id="5wf-Zp-WHY"/>
@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Explore Courses" id="0ns-Xr-lHm"/>
+                    <tabBarItem key="tabBarItem" title="Explore Courses" image="Courses Filled-50" selectedImage="Courses Filled-50" id="0ns-Xr-lHm"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ab-te-BXT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -31,7 +31,7 @@
         <!--Sched Friend Login View Controller-->
         <scene sceneID="5NA-Du-iKd">
             <objects>
-                <viewController id="Swv-oQ-7Qr" customClass="SchedFriendLoginViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" id="Swv-oQ-7Qr" customClass="SchedFriendLoginViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Cts-L8-HSu"/>
                         <viewControllerLayoutGuide type="bottom" id="vxp-jh-8ge"/>
@@ -87,12 +87,23 @@
                                     <action selector="signUp:" destination="Swv-oQ-7Qr" eventType="touchUpInside" id="p6r-dr-gI5"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfv-71-YJ4">
+                                <rect key="frame" x="61" y="629" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.28004344949999999" green="0.49752124320000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="FEJ-UE-hjF" kind="show" identifier="goToTutorial" id="Hi0-UV-g01"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.28004344949999999" green="0.49752124320000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="textFieldLoginEmail" destination="AMy-WU-jCr" id="crO-OW-HFI"/>
                         <outlet property="textFieldLoginPassword" destination="RoK-0D-Pee" id="gOA-3w-dD4"/>
+                        <outlet property="tutorialButton" destination="pfv-71-YJ4" id="EgS-NR-ddi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ukm-YT-BZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -102,7 +113,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabview" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -113,18 +124,118 @@
                         <segue destination="J9v-Jf-gVV" kind="relationship" relationship="viewControllers" id="iBz-kd-2YY"/>
                         <segue destination="csA-yk-Afu" kind="relationship" relationship="viewControllers" id="1Zf-lj-oTR"/>
                         <segue destination="Kn6-xp-mat" kind="relationship" relationship="viewControllers" id="ReU-cM-Uck"/>
-                        <segue destination="1Vi-5A-eYk" kind="relationship" relationship="viewControllers" id="gwX-ny-yR9"/>
                         <segue destination="DMP-sg-nx1" kind="relationship" relationship="viewControllers" id="KI4-rW-dY8"/>
+                        <segue destination="1Vi-5A-eYk" kind="relationship" relationship="viewControllers" id="gwX-ny-yR9"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
+        <!--Page One View Controller-->
+        <scene sceneID="dog-o2-I4y">
+            <objects>
+                <viewController storyboardIdentifier="PageOneViewController" id="DcY-GE-vUO" customClass="PageOneViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LaC-dW-PgE"/>
+                        <viewControllerLayoutGuide type="bottom" id="Yit-Lv-5Qh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BPc-xu-hVl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Tutorial 1 Phone" translatesAutoresizingMaskIntoConstraints="NO" id="SFJ-J0-Ihh">
+                                <rect key="frame" x="50" y="189" width="275" height="478"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Tutorial 1" translatesAutoresizingMaskIntoConstraints="NO" id="JmE-r5-mnw">
+                                <rect key="frame" x="67" y="271" width="240" height="433"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter in your classes " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mk4-b9-s5f">
+                                <rect key="frame" x="66" y="110" width="259" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="28"/>
+                                <color key="textColor" red="0.37483367023919434" green="0.74213279159210477" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99316779823714108" green="0.96347426746842635" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nQR-BC-ZlX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2103.1999999999998" y="1257.1214392803599"/>
+        </scene>
+        <!--Page Two View Controller-->
+        <scene sceneID="0dH-KY-u9H">
+            <objects>
+                <viewController storyboardIdentifier="PageTwoViewController" id="Yha-0k-WoL" customClass="PageTwoViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RdW-QI-Ciu"/>
+                        <viewControllerLayoutGuide type="bottom" id="FKx-k7-yUn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eBb-EW-bl8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Page 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRg-B1-wp8">
+                                <rect key="frame" x="105" y="180" width="53" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNc-dG-d7X">
+                                <rect key="frame" x="202" y="54" width="128" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="start:" destination="Yha-0k-WoL" eventType="touchUpInside" id="K9p-55-ivj"/>
+                                    <segue destination="49e-Tb-3d3" kind="show" id="z4E-yX-vFE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="page2" destination="dRg-B1-wp8" id="DIt-WV-cta"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xk7-D1-gXV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1263.2" y="1256.2218890554723"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="pON-OY-enc">
+            <objects>
+                <viewController id="OD8-3Q-3vS" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gof-8j-fsQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="YOC-Ua-BJT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ISR-Mg-Hae">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZHS-0T-eJL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2103" y="1948"/>
+        </scene>
+        <!--Tutorial View Controller-->
+        <scene sceneID="Ylj-Fq-0a3">
+            <objects>
+                <pageViewController storyboardIdentifier="tutorial" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="none" id="FEJ-UE-hjF" customClass="TutorialViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="clf-Uk-tss" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1642" y="604"/>
+        </scene>
         <!--Add Class To Calendar-->
         <scene sceneID="0hU-Tb-5wz">
             <objects>
-                <viewController id="Ybv-Ku-cgc" customClass="AddClassEventViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="event" id="Ybv-Ku-cgc" customClass="AddClassEventViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mQq-Lg-mNZ"/>
                         <viewControllerLayoutGuide type="bottom" id="6wH-7v-eYQ"/>
@@ -189,7 +300,7 @@
         <!--Map-->
         <scene sceneID="q96-r2-Rxg">
             <objects>
-                <viewController id="DMP-sg-nx1" customClass="MapViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="webview" id="DMP-sg-nx1" customClass="MapViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6kH-Rc-pow"/>
                         <viewControllerLayoutGuide type="bottom" id="yb0-bi-9NV"/>
@@ -205,7 +316,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="Q4E-Ot-cx3"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="Marker Filled-50" selectedImage="Marker Filled-50" id="Q4E-Ot-cx3"/>
                     <connections>
                         <outlet property="mapView" destination="x9L-Ey-j4u" id="ToI-NO-BVi"/>
                     </connections>
@@ -217,7 +328,7 @@
         <!--Your Profile-->
         <scene sceneID="xqm-h6-ZFl">
             <objects>
-                <viewController title="Your Profile" id="kmF-TM-or0" customClass="ProfileViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profile" title="Your Profile" id="kmF-TM-or0" customClass="ProfileViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bHN-Np-hMk"/>
                         <viewControllerLayoutGuide type="bottom" id="60v-5o-acA"/>
@@ -309,7 +420,7 @@
         <!--Search View Controller-->
         <scene sceneID="ps5-Bm-5YU">
             <objects>
-                <viewController id="ApT-q6-DPQ" customClass="SearchViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="search" id="ApT-q6-DPQ" customClass="SearchViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="REU-Cu-F6X"/>
                         <viewControllerLayoutGuide type="bottom" id="dgN-Ck-b51"/>
@@ -355,7 +466,7 @@
         <!--Friend Classes View Controller-->
         <scene sceneID="692-C8-2rr">
             <objects>
-                <viewController id="a4F-ch-zc4" customClass="FriendClassesViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="results" id="a4F-ch-zc4" customClass="FriendClassesViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="U7r-Ns-tAr"/>
                         <viewControllerLayoutGuide type="bottom" id="d6h-5M-VSq"/>
@@ -415,7 +526,7 @@
         <!--Edit Classes View Controller-->
         <scene sceneID="PxL-0I-3N4">
             <objects>
-                <viewController id="jws-Vs-2YM" customClass="EditClassesViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="edit" id="jws-Vs-2YM" customClass="EditClassesViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DOE-oz-qXm"/>
                         <viewControllerLayoutGuide type="bottom" id="4SV-VZ-zXq"/>
@@ -471,11 +582,11 @@
             </objects>
             <point key="canvasLocation" x="2404.8000000000002" y="-1138.8305847076463"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Profile-->
         <scene sceneID="xu8-7v-gtm">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="J9v-Jf-gVV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="featured" id="8VZ-DW-pjg"/>
+                <navigationController storyboardIdentifier="nav" automaticallyAdjustsScrollViewInsets="NO" id="J9v-Jf-gVV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="User Filled-50" selectedImage="User Filled-50" id="8VZ-DW-pjg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="axz-dM-6rd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -493,7 +604,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Lxg-yi-ZEd">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="csA-yk-Afu" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="nav2" automaticallyAdjustsScrollViewInsets="NO" id="csA-yk-Afu" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="search" id="7U0-dA-ECk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LSC-05-olo">
@@ -509,11 +620,11 @@
             </objects>
             <point key="canvasLocation" x="889" y="-393"/>
         </scene>
-        <!--Reminders-->
+        <!--Calendar-->
         <scene sceneID="sns-bF-ntH">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kn6-xp-mat" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Reminders" id="kV6-Pe-PCj"/>
+                <navigationController storyboardIdentifier="nav3" automaticallyAdjustsScrollViewInsets="NO" id="Kn6-xp-mat" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Calendar" image="Calendar-50" selectedImage="Calendar-50" id="kV6-Pe-PCj"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MbE-q8-21W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -530,6 +641,15 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Calendar-50" width="25" height="25"/>
+        <image name="Courses Filled-50" width="25" height="25"/>
+        <image name="Marker Filled-50" width="25" height="25"/>
+        <image name="Tutorial 1" width="375" height="667"/>
+        <image name="Tutorial 1 Phone" width="350" height="568"/>
+        <image name="User Filled-50" width="25" height="25"/>
         <image name="default_profile" width="128" height="128"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="z4E-yX-vFE"/>
+    </inferredMetricsTieBreakers>
 </document>

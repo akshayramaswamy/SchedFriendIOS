@@ -13,10 +13,13 @@ import FirebaseAuth
 class SchedFriendLoginViewController: UIViewController {
     var user: User!
     let ref = FIRDatabase.database().reference()
-
+    
+    @IBOutlet weak var tutorialButton: UIButton!
+    
     override func viewDidLoad() {
         try? FIRAuth.auth()!.signOut()
         self.hideKeyboardWhenTappedAround()
+        tutorialButton.isHidden = true
     }
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         print("should")
@@ -35,10 +38,10 @@ class SchedFriendLoginViewController: UIViewController {
                 }
             }
             
-
+            
             return goToLogin
-            }
-
+        }
+        
         
         return true
     }
@@ -75,15 +78,15 @@ class SchedFriendLoginViewController: UIViewController {
                     // 4
                     userProfileRef.setValue(userProfile.toAnyObject(), withCompletionBlock: { (error, snapshot) in
                         if error != nil {
-
+                            
                             print("oops, an error")
                         } else {
-                            self.performSegue(withIdentifier: "loginToProfile", sender: nil)
+                            self.performSegue(withIdentifier: "goToTutorial", sender: nil)
                             print("completed")
                         }
                     })
                     
-
+                    
                 } else{
                     
                     print (error?.localizedDescription as Any)
@@ -124,13 +127,13 @@ class SchedFriendLoginViewController: UIViewController {
         FIRAuth.auth()!.signIn(withEmail: textFieldLoginEmail.text!,
                                password: textFieldLoginPassword.text!, completion: { (user, snapshot) in
                                 if (!(user==nil)){
-                                        print("segued in log in")
-                                        self.performSegue(withIdentifier: "loginToProfile", sender: nil)
+                                    print("segued in log in")
+                                    self.performSegue(withIdentifier: "loginToProfile", sender: nil)
                                 }
                                 
                                 
         })
-    
+        
     }
     
     
@@ -160,5 +163,5 @@ extension UIViewController {
     func dismissKeyboard() {
         view.endEditing(true)
     }
-
+    
 }
