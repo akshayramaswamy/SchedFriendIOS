@@ -10,9 +10,11 @@ import UIKit
 
 class PageFiveViewController: UIViewController {
 
+    @IBOutlet weak var begin: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        begin.layer.cornerRadius = 8
+        begin.layer.masksToBounds = true
         // Do any additional setup after loading the view.
     }
 

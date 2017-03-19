@@ -168,48 +168,9 @@
             <point key="canvasLocation" x="-2103.1999999999998" y="1257.1214392803599"/>
         </scene>
         <!--Page Two View Controller-->
-        <scene sceneID="0dH-KY-u9H">
-            <objects>
-                <viewController storyboardIdentifier="PageTwoViewController" id="Yha-0k-WoL" customClass="PageTwoViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="RdW-QI-Ciu"/>
-                        <viewControllerLayoutGuide type="bottom" id="FKx-k7-yUn"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="eBb-EW-bl8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Page 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRg-B1-wp8">
-                                <rect key="frame" x="105" y="180" width="53" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xNc-dG-d7X">
-                                <rect key="frame" x="202" y="54" width="128" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Start"/>
-                                <connections>
-                                    <action selector="start:" destination="Yha-0k-WoL" eventType="touchUpInside" id="K9p-55-ivj"/>
-                                    <segue destination="49e-Tb-3d3" kind="show" id="z4E-yX-vFE"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="page2" destination="dRg-B1-wp8" id="DIt-WV-cta"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xk7-D1-gXV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1263.2" y="1256.2218890554723"/>
-        </scene>
-        <!--View Controller-->
         <scene sceneID="pON-OY-enc">
             <objects>
-                <viewController id="OD8-3Q-3vS" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PageTwoViewController" id="OD8-3Q-3vS" customClass="PageTwoViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gof-8j-fsQ"/>
                         <viewControllerLayoutGuide type="bottom" id="YOC-Ua-BJT"/>
@@ -217,12 +178,29 @@
                     <view key="view" contentMode="scaleToFill" id="ISR-Mg-Hae">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Tutorial 1 Phone" translatesAutoresizingMaskIntoConstraints="NO" id="D4p-n6-jCZ">
+                                <rect key="frame" x="50" y="189" width="275" height="478"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="See who is in your classes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TPt-Tg-u2Y">
+                                <rect key="frame" x="29" y="110" width="317" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="28"/>
+                                <color key="textColor" red="0.37483367020000002" green="0.74213279160000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Tutorial 2" translatesAutoresizingMaskIntoConstraints="NO" id="vH6-Rh-y9j">
+                                <rect key="frame" x="65" y="269" width="245" height="432"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99316779820000001" green="0.96347426749999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZHS-0T-eJL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2103" y="1948"/>
+            <point key="canvasLocation" x="-2103.1999999999998" y="1947.9760119940031"/>
         </scene>
         <!--Tutorial View Controller-->
         <scene sceneID="Ylj-Fq-0a3">
@@ -639,6 +617,129 @@
             </objects>
             <point key="canvasLocation" x="932" y="1117.6911544227887"/>
         </scene>
+        <!--Page Three View Controller-->
+        <scene sceneID="nmc-Zg-wu5">
+            <objects>
+                <viewController storyboardIdentifier="PageThreeViewController" id="mOs-vV-NAz" customClass="PageThreeViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EGu-cb-sf8"/>
+                        <viewControllerLayoutGuide type="bottom" id="zjH-sb-XsR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UpC-um-9pC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Tutorial 1 Phone" translatesAutoresizingMaskIntoConstraints="NO" id="mR1-7d-FbP">
+                                <rect key="frame" x="50" y="189" width="275" height="478"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Tutorial 1" translatesAutoresizingMaskIntoConstraints="NO" id="ni1-tU-ON9">
+                                <rect key="frame" x="67" y="271" width="240" height="433"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Tutorial 3" translatesAutoresizingMaskIntoConstraints="NO" id="glE-nd-Jeg">
+                                <rect key="frame" x="67" y="271" width="240" height="433"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Put classes in your cal " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ise-eQ-EsG">
+                                <rect key="frame" x="50" y="110" width="275" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="28"/>
+                                <color key="textColor" red="0.37483367020000002" green="0.74213279160000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99316779820000001" green="0.96347426749999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ois-AX-dK5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2103" y="2637"/>
+        </scene>
+        <!--Page Four View Controller-->
+        <scene sceneID="yrj-BU-Yif">
+            <objects>
+                <viewController storyboardIdentifier="PageFourViewController" id="UGV-MZ-fck" customClass="PageFourViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U4c-CC-0iS"/>
+                        <viewControllerLayoutGuide type="bottom" id="nmx-1R-1RU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MZa-0E-jDm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Tutorial 1 Phone" translatesAutoresizingMaskIntoConstraints="NO" id="H0I-UO-79U">
+                                <rect key="frame" x="50" y="189" width="275" height="478"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Tutorial 4" translatesAutoresizingMaskIntoConstraints="NO" id="kwT-ro-OmK">
+                                <rect key="frame" x="67" y="269" width="240" height="433"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pin classes on the map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEt-JU-vEy">
+                                <rect key="frame" x="46" y="110" width="282" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="28"/>
+                                <color key="textColor" red="0.37483367020000002" green="0.74213279160000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99316779820000001" green="0.96347426749999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="buE-Jy-Had" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1263" y="2638"/>
+        </scene>
+        <!--Page Five View Controller-->
+        <scene sceneID="DLp-Ee-U1J">
+            <objects>
+                <viewController storyboardIdentifier="PageFiveViewController" id="coQ-nb-zY4" customClass="PageFiveViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mDg-ad-APg"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jlc-MK-Hcp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1VK-u5-OBr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Tutorial 1 Phone" translatesAutoresizingMaskIntoConstraints="NO" id="H4n-cU-JiQ">
+                                <rect key="frame" x="50" y="189" width="275" height="478"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Tutorial 5" translatesAutoresizingMaskIntoConstraints="NO" id="T4q-vT-Qqr">
+                                <rect key="frame" x="67" y="271" width="240" height="433"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Click below to get started" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drK-SS-aqV">
+                                <rect key="frame" x="27" y="107" width="321" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="28"/>
+                                <color key="textColor" red="0.37483367020000002" green="0.74213279160000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pds-sq-4ZS">
+                                <rect key="frame" x="138" y="151" width="98" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.49283186899999998" blue="0.38745161989999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Begin">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="49e-Tb-3d3" kind="show" id="dI0-nL-hzq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99316779820000001" green="0.96347426749999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="begin" destination="Pds-sq-4ZS" id="kXP-gN-wLy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xJk-YY-V19" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1263" y="1257"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Calendar-50" width="25" height="25"/>
@@ -646,10 +747,14 @@
         <image name="Marker Filled-50" width="25" height="25"/>
         <image name="Tutorial 1" width="375" height="667"/>
         <image name="Tutorial 1 Phone" width="350" height="568"/>
+        <image name="Tutorial 2" width="373" height="623"/>
+        <image name="Tutorial 3" width="374" height="645"/>
+        <image name="Tutorial 4" width="372" height="669"/>
+        <image name="Tutorial 5" width="370" height="665"/>
         <image name="User Filled-50" width="25" height="25"/>
         <image name="default_profile" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="z4E-yX-vFE"/>
+        <segue reference="dI0-nL-hzq"/>
     </inferredMetricsTieBreakers>
 </document>

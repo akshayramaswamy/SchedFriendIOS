@@ -16,7 +16,10 @@ class TutorialViewController: UIPageViewController, UIPageViewControllerDelegate
     }
     lazy var orderedViewControllers: [UIViewController] = {
         return [self.newVc(viewController: "PageOneViewController"),
-                self.newVc(viewController: "PageTwoViewController")]
+                self.newVc(viewController: "PageTwoViewController"),
+                self.newVc(viewController: "PageThreeViewController"),
+                self.newVc(viewController: "PageFourViewController"),
+                self.newVc(viewController: "PageFiveViewController")]
     }()
     // MARK: Data source functions.
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
