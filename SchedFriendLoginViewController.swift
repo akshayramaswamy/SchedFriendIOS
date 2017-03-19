@@ -123,9 +123,10 @@ class SchedFriendLoginViewController: UIViewController {
         print(textFieldLoginPassword.text!)
         FIRAuth.auth()!.signIn(withEmail: textFieldLoginEmail.text!,
                                password: textFieldLoginPassword.text!, completion: { (user, snapshot) in
-   
+                                if (!(user==nil)){
                                         print("segued in log in")
                                         self.performSegue(withIdentifier: "loginToProfile", sender: nil)
+                                }
                                 
                                 
         })
@@ -159,4 +160,5 @@ extension UIViewController {
     func dismissKeyboard() {
         view.endEditing(true)
     }
+
 }

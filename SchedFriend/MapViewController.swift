@@ -23,13 +23,80 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
         centerMapOnLocation(location: initialLocation)
         // Do any additional setup after loading the view.
-        let classLocation = ClassLocation(title: "King David Kalakaua",
-                                          locationName: "Waikiki Gateway Park",
-                                          discipline: "Sculpture",
-                                          coordinate: CLLocationCoordinate2D(latitude: 21.283921, longitude: -157.831661))
-        
-        mapView.addAnnotation(classLocation)
+        addClassesToMap()
+
         mapView.delegate = self
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(addAnnotationOnLongPress(gesture:)))
+        longPressGesture.minimumPressDuration = 1.0
+        self.mapView.addGestureRecognizer(longPressGesture)
+    }
+    func addClassesToMap(){
+        let classLocation109 = ClassLocation(title: "CS109",
+                                          locationName: "Bishop Auditorium",
+                                          discipline: "Computer Science",
+                                          coordinate: CLLocationCoordinate2D(latitude: 37.42952182962479, longitude: -122.16713485362516))
+        let classLocationPhil2 = ClassLocation(title: "PHIL2",
+                                             locationName: "Building 100",
+                                             discipline: "Philosophy",
+                                             coordinate: CLLocationCoordinate2D(latitude: 37.428053792518988, longitude: -122.17088533478524))
+        let classLocationEcon1 = ClassLocation(title: "ECON1",
+                                               locationName: "Stanford Graduate School of Education",
+                                               discipline: "Philosophy",
+                                               coordinate: CLLocationCoordinate2D(latitude: 37.426339256446816, longitude: -122.1683811172405))
+        let classLocationCS193P = ClassLocation(title: "CS193P",
+                                               locationName: "William R. Hewlett Teaching Center",
+                                               discipline: "Computer Science",
+                                               coordinate: CLLocationCoordinate2D(latitude: 37.428919285072595, longitude: -122.1727095102182))
+        let classLocationCS221 = ClassLocation(title: "CS221",
+                                                locationName: "William R. Hewlett Teaching Center",
+                                                discipline: "Computer Science",
+                                                coordinate: CLLocationCoordinate2D(latitude: 37.427834635374573, longitude: -122.17415696863098))
+        mapView.addAnnotation(classLocation109)
+        mapView.addAnnotation(classLocationPhil2)
+        mapView.addAnnotation(classLocationEcon1)
+        mapView.addAnnotation(classLocationCS193P)
+        mapView.addAnnotation(classLocationCS221)
+        
+    
+    }
+    func addAnnotationOnLongPress(gesture: UILongPressGestureRecognizer) {
+        
+        if gesture.state == .ended {
+            let point = gesture.location(in: self.mapView)
+            let coordinate = self.mapView.convert(point, toCoordinateFrom: self.mapView)
+            print(coordinate)
+            //Now use this coordinate to add annotation on map.
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = coordinate
+            //Set title and subtitle if you want
+            let alert = UIAlertController(title: "New Class",
+                                          message: "Enter in class and building name",
+                                          preferredStyle: .alert)
+            
+            let saveAction = UIAlertAction(title: "Save", style: .default) { action in
+                // 1
+                annotation.title = alert.textFields![0].text
+                annotation.subtitle = alert.textFields![1].text
+                self.mapView.addAnnotation(annotation)
+                
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel",
+                                             style: .default)
+            alert.addTextField { textFirstName in
+                textFirstName.placeholder = "Class name"
+            }
+            alert.addTextField { textLastName in
+                textLastName.placeholder = "Building name"
+            }
+
+            
+            alert.addAction(saveAction)
+            alert.addAction(cancelAction)
+            
+            present(alert, animated: true, completion: nil)
+
+        }
     }
     let regionRadius: CLLocationDistance = 1000
     func centerMapOnLocation(location: CLLocation) {
@@ -66,6 +133,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         let myAnnotation: MKPointAnnotation = MKPointAnnotation()
         myAnnotation.coordinate = CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude);
         myAnnotation.title = "Current location"
+        myAnnotation.subtitle = "it's lit"
         mapView.addAnnotation(myAnnotation)
     }
     

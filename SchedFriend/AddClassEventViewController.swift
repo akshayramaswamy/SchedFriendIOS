@@ -9,7 +9,7 @@
 import UIKit
 import EventKit
 var calendarForEvent: EKCalendar?
-class AddClassEventViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class AddClassEventViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource  {
     let eventStore = EKEventStore()
     @IBOutlet weak var eventNameTextField: UITextField!
     @IBOutlet weak var eventStartDatePicker: UIDatePicker!
@@ -39,8 +39,10 @@ class AddClassEventViewController: UIViewController, UIPickerViewDelegate, UIPic
         checkCalendarAuthorizationStatus()
         self.eventStartDatePicker.setDate(initialDatePickerValue(), animated: false)
         self.hideKeyboardWhenTappedAround()
+        self.eventNameTextField.delegate = self
        
     }
+
 
     func requestAccessToCalendar() {
         eventStore.requestAccess(to: EKEntityType.event, completion: {
@@ -162,6 +164,12 @@ class AddClassEventViewController: UIViewController, UIPickerViewDelegate, UIPic
         return NSAttributedString(string: str, attributes: [NSForegroundColorAttributeName:UIColor.white])
     }
 }
+
+extension AddClassEventViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }}
 /*
  // MARK: - Navigation
  
