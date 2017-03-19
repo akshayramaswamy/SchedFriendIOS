@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Class Videos-->
+        <!--Explore Courses-->
         <scene sceneID="lzJ-hA-XGI">
             <objects>
-                <viewController id="1Vi-5A-eYk" sceneMemberID="viewController">
+                <viewController id="1Vi-5A-eYk" customClass="ExploreCoursesViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1mD-Xf-sze"/>
                         <viewControllerLayoutGuide type="bottom" id="5wf-Zp-WHY"/>
@@ -22,11 +22,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Class Videos" id="0ns-Xr-lHm"/>
+                    <tabBarItem key="tabBarItem" title="Explore Courses" id="0ns-Xr-lHm"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ab-te-BXT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="71" y="2132"/>
+            <point key="canvasLocation" x="69.599999999999994" y="2131.4842578710645"/>
         </scene>
         <!--Sched Friend Login View Controller-->
         <scene sceneID="5NA-Du-iKd">
@@ -113,15 +113,15 @@
                         <segue destination="J9v-Jf-gVV" kind="relationship" relationship="viewControllers" id="iBz-kd-2YY"/>
                         <segue destination="csA-yk-Afu" kind="relationship" relationship="viewControllers" id="1Zf-lj-oTR"/>
                         <segue destination="Kn6-xp-mat" kind="relationship" relationship="viewControllers" id="ReU-cM-Uck"/>
-                        <segue destination="DMP-sg-nx1" kind="relationship" relationship="viewControllers" id="KI4-rW-dY8"/>
                         <segue destination="1Vi-5A-eYk" kind="relationship" relationship="viewControllers" id="gwX-ny-yR9"/>
+                        <segue destination="DMP-sg-nx1" kind="relationship" relationship="viewControllers" id="KI4-rW-dY8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Add Class Event View Controller-->
+        <!--Add Class To Calendar-->
         <scene sceneID="0hU-Tb-5wz">
             <objects>
                 <viewController id="Ybv-Ku-cgc" customClass="AddClassEventViewController" customModule="SchedFriend" customModuleProvider="target" sceneMemberID="viewController">
@@ -134,40 +134,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="31E-Ss-G2V">
-                                <rect key="frame" x="0.0" y="244" width="375" height="216"/>
+                                <rect key="frame" x="0.0" y="146" width="375" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <date key="date" timeIntervalSinceReferenceDate="511564494.29193997">
                                     <!--2017-03-18 21:14:54 +0000-->
                                 </date>
                             </datePicker>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4De-uf-Rtg">
-                                <rect key="frame" x="40" y="455" width="295" height="112"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Class Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="37i-Fq-xFt">
-                                <rect key="frame" x="104" y="170" width="167" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Start date / class time / repeat day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8dy-u9-4UR">
-                                <rect key="frame" x="54" y="221" width="266" height="28"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Set date / class time / repeat day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8dy-u9-4UR">
+                                <rect key="frame" x="54" y="72" width="266" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4De-uf-Rtg">
+                                <rect key="frame" x="0.0" y="370" width="375" height="112"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Class Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="37i-Fq-xFt">
+                                <rect key="frame" x="0.0" y="108" width="375" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Dh-eg-0tg">
+                                <rect key="frame" x="54" y="490" width="266" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.49283186899999998" blue="0.38745161989999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <state key="normal" title="Add to Calendar">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addEvent:" destination="Ybv-Ku-cgc" eventType="touchUpInside" id="8e9-Sz-LNL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.28004344949999999" green="0.49752124320000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="i39-gA-Gnr">
-                        <barButtonItem key="rightBarButtonItem" title="Add Event" id="llg-ba-vLu">
-                            <connections>
-                                <action selector="addEvent:" destination="Ybv-Ku-cgc" id="DIY-mS-n4p"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Add Class To Calendar" id="i39-gA-Gnr"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="dayPicker" destination="4De-uf-Rtg" id="woS-Ih-Vmg"/>
                         <outlet property="eventNameTextField" destination="37i-Fq-xFt" id="ugh-BN-ger"/>

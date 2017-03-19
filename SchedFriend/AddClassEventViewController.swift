@@ -61,7 +61,7 @@ class AddClassEventViewController: UIViewController, UIPickerViewDelegate, UIPic
             }
         })
     }
-    @IBAction func addEvent(_ sender: UIBarButtonItem) {
+    @IBAction func addEvent(_ sender: UIButton) {
         // Use Event Store to create a new calendar instance
         let calendarForEvent = eventStore.defaultCalendarForNewEvents
         

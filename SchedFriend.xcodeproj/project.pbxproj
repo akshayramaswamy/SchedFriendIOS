@@ -12,6 +12,7 @@
 		AF42B0EB1E723A9F00C7F24D /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF42B0EA1E723A9F00C7F24D /* CloudKit.framework */; };
 		AF42B0ED1E732D5900C7F24D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF42B0EC1E732D5900C7F24D /* ProfileViewController.swift */; };
 		AF42B0F31E732DE800C7F24D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF42B0F21E732DE800C7F24D /* SettingsViewController.swift */; };
+		AF4BF5141E7E022200402934 /* ExploreCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4BF5131E7E022200402934 /* ExploreCoursesViewController.swift */; };
 		AF56F8681E7A5A6F0092D6CF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF56F8671E7A5A6F0092D6CF /* User.swift */; };
 		AF56F86A1E7A5B0D0092D6CF /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF56F8691E7A5B0D0092D6CF /* UserProfile.swift */; };
 		AF5F21BA1E7B37BD005B7B5F /* EditClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F21B91E7B37BD005B7B5F /* EditClassesViewController.swift */; };
@@ -37,6 +38,7 @@
 		AF42B0EA1E723A9F00C7F24D /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		AF42B0EC1E732D5900C7F24D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AF42B0F21E732DE800C7F24D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ../SettingsViewController.swift; sourceTree = "<group>"; };
+		AF4BF5131E7E022200402934 /* ExploreCoursesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreCoursesViewController.swift; sourceTree = "<group>"; };
 		AF56F8671E7A5A6F0092D6CF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AF56F8691E7A5B0D0092D6CF /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		AF5F21B91E7B37BD005B7B5F /* EditClassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditClassesViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				AF6F058A1E78AE8B00C00E94 /* CreateAccountViewController.swift */,
 				AF6F05881E78ABD100C00E94 /* DataService.swift */,
 				AFC16A881E7229F9009C6186 /* Main.storyboard */,
+				AF4BF5131E7E022200402934 /* ExploreCoursesViewController.swift */,
 				AF68E8921E7DD7D3003A779B /* AddClassEventViewController.swift */,
 				AF0E332C1E78AAC900ABD3D1 /* Constants.swift */,
 				AFC16A8B1E7229F9009C6186 /* Assets.xcassets */,
@@ -280,6 +283,7 @@
 				AF5F21BA1E7B37BD005B7B5F /* EditClassesViewController.swift in Sources */,
 				AF6F058B1E78AE8B00C00E94 /* CreateAccountViewController.swift in Sources */,
 				AFB7D17A1E7CF825004FFF28 /* SearchViewController.swift in Sources */,
+				AF4BF5141E7E022200402934 /* ExploreCoursesViewController.swift in Sources */,
 				AF56F8681E7A5A6F0092D6CF /* User.swift in Sources */,
 				AFC16A831E7229F9009C6186 /* AppDelegate.swift in Sources */,
 				AF6F059C1E79B16E00C00E94 /* SchedFriendLoginViewController.swift in Sources */,
