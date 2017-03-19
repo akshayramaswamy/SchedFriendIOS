@@ -5,6 +5,7 @@
 //  Created by Akshay Ramaswamy on 3/10/17.
 //  Copyright © 2017 Akshay Ramaswamy. All rights reserved.
 //
+//  This fire creates the user's profile, with their profile image and the ability to add classes to each quarter
 
 import UIKit
 import FirebaseDatabase
@@ -20,15 +21,14 @@ UINavigationControllerDelegate{
     var userProfile: UserProfile!
     var rootRef = FIRDatabase.database().reference()
     var userRef: FIRDatabaseReference?
-    
     @IBOutlet weak var profileImage: UIImageView!
     let picker = UIImagePickerController()
+    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         picker.delegate = self
-        //UI designing
         
+        // creating clean UI design
         segmentedClassView.layer.cornerRadius = 10.0
         segmentedClassView.layer.borderColor = UIColor.blue.cgColor
         segmentedClassView.layer.borderWidth = 1.0
@@ -38,77 +38,73 @@ UINavigationControllerDelegate{
         profileImage.layer.borderColor = UIColor.black.cgColor
         self.profileImage.layer.cornerRadius = self.profileImage.frame.height / 2;
         self.profileImage.clipsToBounds = true;
+        
+        //local notifications used to constantly update tableview
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
         
-        FIRAuth.auth()!.addStateDidChangeListener { auth, user in
+        //load classes into table view and profile picture when user authenticated
+        FIRAuth.auth()!.addStateDidChangeListener { [weak self] auth, user in
             
             guard let user = user else { return }
-            self.user = User(authData: user)
-            
-            self.userRef = self.rootRef.child(self.user.uid)
-            //print(self.user.uid)
-            
-            self.userRef?.queryOrdered(byChild: "uid").observeSingleEvent(of: .value, with: { snapshot in
+            self?.user = User(authData: user)
+            self?.userRef = self?.rootRef.child((self?.user.uid)!)
+            self?.userRef?.queryOrdered(byChild: "uid").observeSingleEvent(of: .value, with: { snapshot in
                 
-                if (self.user.uid == snapshot.key){
+                if (self?.user.uid == snapshot.key){
                     
                     if let fallList:[String] = (snapshot.childSnapshot(forPath: "fallClasses").value as? Array<String>){
-                        self.fallList = fallList
+                        self?.fallList = fallList
                     }
                     if let winter:[String] = (snapshot.childSnapshot(forPath: "winterClasses").value as? Array<String>){
-                        self.winterList = winter
+                        self?.winterList = winter
                     }
                     
                     if let spring:[String] = (snapshot.childSnapshot(forPath: "springClasses").value as? Array<String>) {
-                        self.springList = spring
+                        self?.springList = spring
                     }
                     
                     if let profilePicture:String = (snapshot.childSnapshot(forPath: "profilePicture").value as? String) {
                         if (profilePicture.characters.count != 0){
-                            if(self.user.uid == snapshot.key){
+                            if(self?.user.uid == snapshot.key){
                                 let url = URL(string: profilePicture)
                                 if let data = try? Data(contentsOf: url!){
-                                    self.profileImage.image = UIImage(data: data)
+                                    self?.profileImage.image = UIImage(data: data)
                                 }
                             }
                         }
                         
                     }
-                    self.classTableView.reloadData()
+                    self?.classTableView.reloadData()
                     
                 }
             })
         }
         
-        
-        
-        
     }
     
+    //Constantly update tableview realtime as user enters in classes
     func loadList(){
         print ("reloaded")
         //load data here
-        self.userRef?.queryOrdered(byChild: "uid").observeSingleEvent(of: .value, with: { snapshot in
-            //print(snapshot)
-            //print(snapshot.key)
-            if (self.user.uid == snapshot.key){
+        self.userRef?.queryOrdered(byChild: "uid").observeSingleEvent(of: .value, with: { [weak self] snapshot in
+            if (self?.user.uid == snapshot.key){
                 
                 if let fallList:[String] = (snapshot.childSnapshot(forPath: "fallClasses").value as? Array<String>) {
-                    self.fallList = fallList
+                    self?.fallList = fallList
                 }
                 if let winter:[String] = (snapshot.childSnapshot(forPath: "winterClasses").value as? Array<String>){
-                    self.winterList = winter
+                    self?.winterList = winter
                 }
                 if let spring:[String] = (snapshot.childSnapshot(forPath: "springClasses").value as? Array<String>){
-                    self.springList = spring
+                    self?.springList = spring
                 }
                 
-                self.classTableView.reloadData()
+                self?.classTableView.reloadData()
             }
         })
     }
     
-    
+    /* Allow user to create profile picture from library and upload to firebase */
     @IBAction func uploadImage(_ sender: UIBarButtonItem) {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             picker.allowsEditing = true
@@ -119,7 +115,7 @@ UINavigationControllerDelegate{
             noCamera()
         }
     }
-    //MARK: - Delegates
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any])
     {
         let chosenImage = info[UIImagePickerControllerEditedImage] as! UIImage //2
@@ -149,7 +145,7 @@ UINavigationControllerDelegate{
             })
         }
         
-        dismiss(animated:true, completion: nil) //5
+        dismiss(animated:true, completion: nil)
     }
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
@@ -170,6 +166,8 @@ UINavigationControllerDelegate{
             animated: true,
             completion: nil)
     }
+    
+    /* Set up segmented class table view for clean UI of schedules each quarter */
     var fallList:[String]?
     var winterList:[String]?
     var springList:[String]?
@@ -230,17 +228,14 @@ UINavigationControllerDelegate{
             break
             
         }
-        
-        
         return classCell
     }
     
     @IBAction func segmentedClassViewChanged(_ sender: UISegmentedControl) {
-        
         classTableView.reloadData()
     }
     
-    
+    //popover view to add classes
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print(" no segue")
         if segue.identifier == "popoverSegue" {
@@ -250,6 +245,7 @@ UINavigationControllerDelegate{
             print("segue")
         }
     }
+    //prevent default so we can use popovers in iPhone
     func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle
     {
         return .none

@@ -5,6 +5,7 @@
 //  Created by Akshay Ramaswamy on 3/15/17.
 //  Copyright © 2017 Akshay Ramaswamy. All rights reserved.
 //
+//  This file creates and object for each user's ID and email
 
 import Foundation
 import Firebase

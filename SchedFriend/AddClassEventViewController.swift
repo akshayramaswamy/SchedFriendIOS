@@ -5,10 +5,13 @@
 //  Created by Akshay Ramaswamy on 3/18/17.
 //  Copyright © 2017 Akshay Ramaswamy. All rights reserved.
 //
+// This file uses event kit to add classes to a user's default calendar.
+// The user can set the recurrence rule for what day the class is each week
 
 import UIKit
 import EventKit
 var calendarForEvent: EKCalendar?
+
 class AddClassEventViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource  {
     let eventStore = EKEventStore()
     @IBOutlet weak var eventNameTextField: UITextField!
@@ -35,15 +38,15 @@ class AddClassEventViewController: UIViewController, UIPickerViewDelegate, UIPic
         self.eventStartDatePicker.setValue(UIColor.white, forKey: "textColor")
         // Input data into the Array:
         pickerData = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
-       
+        
         checkCalendarAuthorizationStatus()
         self.eventStartDatePicker.setDate(initialDatePickerValue(), animated: false)
         self.hideKeyboardWhenTappedAround()
         self.eventNameTextField.delegate = self
-       
+        
     }
-
-
+    
+    
     func requestAccessToCalendar() {
         eventStore.requestAccess(to: EKEntityType.event, completion: {
             (accessGranted: Bool, error: Error?) in
@@ -115,12 +118,12 @@ class AddClassEventViewController: UIViewController, UIPickerViewDelegate, UIPic
             newRule = EKRecurrenceRule(recurrenceWith: .monthly, interval: 1, daysOfTheWeek: [friday], daysOfTheMonth: nil, monthsOfTheYear: nil, weeksOfTheYear: nil, daysOfTheYear: nil, setPositions: nil, end: nil)
             
         default: break
-    
-        
+            
+            
         }
         return newRule
     }
- 
+    
     func checkCalendarAuthorizationStatus() {
         let status = EKEventStore.authorizationStatus(for: EKEntityType.event)
         
@@ -136,7 +139,7 @@ class AddClassEventViewController: UIViewController, UIPickerViewDelegate, UIPic
         
         
         
-
+        
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -170,14 +173,6 @@ extension AddClassEventViewController: UITextFieldDelegate{
         textField.resignFirstResponder()
         return true
     }}
-/*
- // MARK: - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
- // Get the new view controller using segue.destinationViewController.
- // Pass the selected object to the new view controller.
- }
- */
+
 
 

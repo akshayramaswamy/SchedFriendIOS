@@ -5,6 +5,8 @@
 //  Created by Akshay Ramaswamy on 3/18/17.
 //  Copyright © 2017 Akshay Ramaswamy. All rights reserved.
 //
+// This file sets up the initial tutorial for when the user first signs up
+// Navigates Page one/two/three/four/five view controllers
 
 import UIKit
 
@@ -21,7 +23,6 @@ class TutorialViewController: UIPageViewController, UIPageViewControllerDelegate
                 self.newVc(viewController: "PageFourViewController"),
                 self.newVc(viewController: "PageFiveViewController")]
     }()
-    // MARK: Data source functions.
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = orderedViewControllers.index(of: viewController) else {
             return nil
@@ -33,8 +34,6 @@ class TutorialViewController: UIPageViewController, UIPageViewControllerDelegate
         // the last view controller.
         guard previousIndex >= 0 else {
             return orderedViewControllers.last
-            // Uncommment the line below, remove the line above if you don't want the page control to loop.
-            // return nil
         }
         
         guard orderedViewControllers.count > previousIndex else {
@@ -56,8 +55,6 @@ class TutorialViewController: UIPageViewController, UIPageViewControllerDelegate
         // the first view controller.
         guard orderedViewControllersCount != nextIndex else {
             return orderedViewControllers.first
-            // Uncommment the line below, remove the line above if you don't want the page control to loop.
-            // return nil
         }
         
         guard orderedViewControllersCount > nextIndex else {
@@ -69,7 +66,7 @@ class TutorialViewController: UIPageViewController, UIPageViewControllerDelegate
     override func viewDidLoad() {
         self.dataSource = self
         self.delegate = self
-        // This sets up the first view that will show up on our page control
+        // This sets up the first view
         if let firstViewController = orderedViewControllers.first {
             setViewControllers([firstViewController],
                                direction: .forward,
@@ -79,7 +76,7 @@ class TutorialViewController: UIPageViewController, UIPageViewControllerDelegate
         configurePageControl()
     }
     func configurePageControl() {
-        // The total number of pages that are available is based on how many available colors we have.
+        // The total number of pages that are available
         pageControl = UIPageControl(frame: CGRect(x: 0,y: UIScreen.main.bounds.maxY - 50,width: UIScreen.main.bounds.width,height: 50))
         self.pageControl.numberOfPages = orderedViewControllers.count
         self.pageControl.currentPage = 0
@@ -93,5 +90,5 @@ class TutorialViewController: UIPageViewController, UIPageViewControllerDelegate
         let pageContentViewController = pageViewController.viewControllers![0]
         self.pageControl.currentPage = orderedViewControllers.index(of: pageContentViewController)!
     }
-
+    
 }

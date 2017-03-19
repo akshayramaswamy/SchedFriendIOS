@@ -5,6 +5,9 @@
 //  Created by Akshay Ramaswamy on 3/15/17.
 //  Copyright © 2017 Akshay Ramaswamy. All rights reserved.
 //
+// This file handles logic for signing up and logging in users
+// Extensions added to resign keyboard when user taps away from keyboard
+// or to pull up the keyboard when user needs it
 
 import UIKit
 import FirebaseDatabase
@@ -21,8 +24,8 @@ class SchedFriendLoginViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
         tutorialButton.isHidden = true
     }
+    
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        print("should")
         var goToLogin = false
         if identifier == "loginToProfile" {
             if (FIRAuth.auth()!.currentUser != nil){
@@ -37,12 +40,8 @@ class SchedFriendLoginViewController: UIViewController {
                     goToLogin = true
                 }
             }
-            
-            
             return goToLogin
         }
-        
-        
         return true
     }
     
@@ -52,7 +51,7 @@ class SchedFriendLoginViewController: UIViewController {
     
     @IBAction func signUp(_ sender: Any) {
         let alert = UIAlertController(title: "Register",
-                                      message: "Register",
+                                      message: "Create a new account",
                                       preferredStyle: .alert)
         
         let saveAction = UIAlertAction(title: "Save", style: .default) { action in
@@ -67,21 +66,21 @@ class SchedFriendLoginViewController: UIViewController {
             let profilePicture = String()
             
             // 2
-            FIRAuth.auth()!.createUser(withEmail: emailField.text!, password: passwordField.text!) { user, error in
+            FIRAuth.auth()!.createUser(withEmail: emailField.text!, password: passwordField.text!) { [weak self] user, error in
                 if error == nil {
                     // 3
-                    FIRAuth.auth()!.signIn(withEmail: self.textFieldLoginEmail.text!, password: self.textFieldLoginPassword.text!)
-                    self.user = User(authData: user!)
-                    let userProfile = UserProfile(uid: self.user.uid, firstName: firstNameField.text!, lastName: lastNameField.text!, fallClasses: fallClasses, winterClasses: winterClasses, springClasses: springClasses, profilePicture: profilePicture)
-                    let userProfileRef = self.ref.child((user?.uid)!)
+                    FIRAuth.auth()!.signIn(withEmail: (self?.textFieldLoginEmail.text!)!, password: (self?.textFieldLoginPassword.text!)!)
+                    self?.user = User(authData: user!)
+                    let userProfile = UserProfile(uid: (self?.user.uid)!, firstName: firstNameField.text!, lastName: lastNameField.text!, fallClasses: fallClasses, winterClasses: winterClasses, springClasses: springClasses, profilePicture: profilePicture)
+                    let userProfileRef = self?.ref.child((user?.uid)!)
                     
                     // 4
-                    userProfileRef.setValue(userProfile.toAnyObject(), withCompletionBlock: { (error, snapshot) in
+                    userProfileRef?.setValue(userProfile.toAnyObject(), withCompletionBlock: { (error, snapshot)  in
                         if error != nil {
                             
                             print("oops, an error")
                         } else {
-                            self.performSegue(withIdentifier: "goToTutorial", sender: nil)
+                            self?.performSegue(withIdentifier: "goToTutorial", sender: nil)
                             print("completed")
                         }
                     })
@@ -91,7 +90,7 @@ class SchedFriendLoginViewController: UIViewController {
                     let alert = UIAlertController(title: "Unable to sign up", message: (error?.localizedDescription)! , preferredStyle: .alert)
                     let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                     alert.addAction(OKAction)
-                    self.present(alert, animated: true, completion: nil)
+                    self?.present(alert, animated: true, completion: nil)
                     
                 }
             }
@@ -103,19 +102,19 @@ class SchedFriendLoginViewController: UIViewController {
         let cancelAction = UIAlertAction(title: "Cancel",
                                          style: .default)
         alert.addTextField { textFirstName in
-            textFirstName.placeholder = "Enter your first name"
+            textFirstName.placeholder = "First name"
         }
         alert.addTextField { textLastName in
-            textLastName.placeholder = "Enter your last name"
+            textLastName.placeholder = "Last name"
         }
         
         alert.addTextField { textEmail in
-            textEmail.placeholder = "Enter your email"
+            textEmail.placeholder = "Email"
         }
         
         alert.addTextField { textPassword in
             textPassword.isSecureTextEntry = true
-            textPassword.placeholder = "Enter your password"
+            textPassword.placeholder = "Password"
         }
         
         alert.addAction(saveAction)
@@ -125,18 +124,17 @@ class SchedFriendLoginViewController: UIViewController {
     }
     
     @IBAction func loginUser(_ sender: UIButton) {
-        print(textFieldLoginEmail.text!)
-        print(textFieldLoginPassword.text!)
+
         FIRAuth.auth()!.signIn(withEmail: textFieldLoginEmail.text!,
-                               password: textFieldLoginPassword.text!, completion: { (user, snapshot) in
+                               password: textFieldLoginPassword.text!, completion: { [weak self] (user, snapshot) in
                                 if (!(user==nil)){
                                     print("segued in log in")
-                                    self.performSegue(withIdentifier: "loginToProfile", sender: nil)
+                                    self?.performSegue(withIdentifier: "loginToProfile", sender: nil)
                                 } else {
                                     let alert = UIAlertController(title: "Unable to log in", message: "Please try again", preferredStyle: .alert)
                                     let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
                                     alert.addAction(OKAction)
-                                    self.present(alert, animated: true, completion: nil)
+                                    self?.present(alert, animated: true, completion: nil)
                                 }
                                 
                                 

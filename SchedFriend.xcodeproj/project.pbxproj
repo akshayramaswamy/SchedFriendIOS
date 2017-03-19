@@ -8,10 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		22ED956267E2DAE53F0BA954 /* Pods_SchedFriend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CD7840603FF62F3F69172C8 /* Pods_SchedFriend.framework */; };
-		AF0E332D1E78AAC900ABD3D1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E332C1E78AAC900ABD3D1 /* Constants.swift */; };
 		AF42B0EB1E723A9F00C7F24D /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF42B0EA1E723A9F00C7F24D /* CloudKit.framework */; };
 		AF42B0ED1E732D5900C7F24D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF42B0EC1E732D5900C7F24D /* ProfileViewController.swift */; };
-		AF42B0F31E732DE800C7F24D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF42B0F21E732DE800C7F24D /* SettingsViewController.swift */; };
 		AF4BF5141E7E022200402934 /* ExploreCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4BF5131E7E022200402934 /* ExploreCoursesViewController.swift */; };
 		AF4BF5161E7E29FE00402934 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4BF5151E7E29FE00402934 /* MapViewController.swift */; };
 		AF4BF5181E7E2BD400402934 /* ClassLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4BF5171E7E2BD300402934 /* ClassLocation.swift */; };
@@ -19,8 +17,6 @@
 		AF56F86A1E7A5B0D0092D6CF /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF56F8691E7A5B0D0092D6CF /* UserProfile.swift */; };
 		AF5F21BA1E7B37BD005B7B5F /* EditClassesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F21B91E7B37BD005B7B5F /* EditClassesViewController.swift */; };
 		AF68E8931E7DD7D3003A779B /* AddClassEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF68E8921E7DD7D3003A779B /* AddClassEventViewController.swift */; };
-		AF6F05891E78ABD100C00E94 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6F05881E78ABD100C00E94 /* DataService.swift */; };
-		AF6F058B1E78AE8B00C00E94 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6F058A1E78AE8B00C00E94 /* CreateAccountViewController.swift */; };
 		AF6F05981E793FB300C00E94 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF6F05971E793FB300C00E94 /* GoogleService-Info.plist */; };
 		AF6F059C1E79B16E00C00E94 /* SchedFriendLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6F059B1E79B16E00C00E94 /* SchedFriendLoginViewController.swift */; };
 		AF81A8791E7E849000D1DEE7 /* PageThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF81A8781E7E849000D1DEE7 /* PageThreeViewController.swift */; };
@@ -42,10 +38,8 @@
 		481FA177ADEEA092D72D8242 /* Pods-SchedFriend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchedFriend.release.xcconfig"; path = "Pods/Target Support Files/Pods-SchedFriend/Pods-SchedFriend.release.xcconfig"; sourceTree = "<group>"; };
 		6CD7840603FF62F3F69172C8 /* Pods_SchedFriend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SchedFriend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86245DB19FB0F3FE797BB339 /* Pods-SchedFriend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SchedFriend.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SchedFriend/Pods-SchedFriend.debug.xcconfig"; sourceTree = "<group>"; };
-		AF0E332C1E78AAC900ABD3D1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AF42B0EA1E723A9F00C7F24D /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		AF42B0EC1E732D5900C7F24D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		AF42B0F21E732DE800C7F24D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = ../SettingsViewController.swift; sourceTree = "<group>"; };
 		AF4BF5131E7E022200402934 /* ExploreCoursesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreCoursesViewController.swift; sourceTree = "<group>"; };
 		AF4BF5151E7E29FE00402934 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		AF4BF5171E7E2BD300402934 /* ClassLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassLocation.swift; sourceTree = "<group>"; };
@@ -54,8 +48,6 @@
 		AF5F21B91E7B37BD005B7B5F /* EditClassesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditClassesViewController.swift; sourceTree = "<group>"; };
 		AF6426AE1E72360200821378 /* SchedFriend.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SchedFriend.entitlements; sourceTree = "<group>"; };
 		AF68E8921E7DD7D3003A779B /* AddClassEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddClassEventViewController.swift; sourceTree = "<group>"; };
-		AF6F05881E78ABD100C00E94 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
-		AF6F058A1E78AE8B00C00E94 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		AF6F05971E793FB300C00E94 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/Grocr-starter 3/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AF6F059B1E79B16E00C00E94 /* SchedFriendLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SchedFriendLoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		AF81A8781E7E849000D1DEE7 /* PageThreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageThreeViewController.swift; sourceTree = "<group>"; };
@@ -101,8 +93,58 @@
 		AFB34FB41E7F1621002BDFEE /* Intro Tutorial */ = {
 			isa = PBXGroup;
 			children = (
+				AF8513621E7E4D410034C894 /* TutorialViewController.swift */,
+				AF8513681E7E56D40034C894 /* PageOneViewController.swift */,
+				AF85136A1E7E56EC0034C894 /* PageTwoViewController.swift */,
+				AF81A8781E7E849000D1DEE7 /* PageThreeViewController.swift */,
+				AF81A87A1E7E84A300D1DEE7 /* PageFourViewController.swift */,
+				AF81A87C1E7E84B900D1DEE7 /* PageFiveViewController.swift */,
 			);
 			name = "Intro Tutorial";
+			sourceTree = "<group>";
+		};
+		AFB34FB51E7F1661002BDFEE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AF56F8671E7A5A6F0092D6CF /* User.swift */,
+				AF56F8691E7A5B0D0092D6CF /* UserProfile.swift */,
+				AF4BF5171E7E2BD300402934 /* ClassLocation.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		AFB34FB61E7F1673002BDFEE /* Permissions */ = {
+			isa = PBXGroup;
+			children = (
+				AFC16A901E7229F9009C6186 /* Info.plist */,
+				AF6F05971E793FB300C00E94 /* GoogleService-Info.plist */,
+				AF6426AE1E72360200821378 /* SchedFriend.entitlements */,
+			);
+			name = Permissions;
+			sourceTree = "<group>";
+		};
+		AFB34FB71E7F16D6002BDFEE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AFC16A8B1E7229F9009C6186 /* Assets.xcassets */,
+				AFC16A821E7229F9009C6186 /* AppDelegate.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AFB34FB81E7F1717002BDFEE /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AF6F059B1E79B16E00C00E94 /* SchedFriendLoginViewController.swift */,
+				AF42B0EC1E732D5900C7F24D /* ProfileViewController.swift */,
+				AF5F21B91E7B37BD005B7B5F /* EditClassesViewController.swift */,
+				AFB7D1791E7CF825004FFF28 /* SearchViewController.swift */,
+				AFB7D17B1E7D2671004FFF28 /* FriendClassesViewController.swift */,
+				AF68E8921E7DD7D3003A779B /* AddClassEventViewController.swift */,
+				AF4BF5151E7E29FE00402934 /* MapViewController.swift */,
+				AF4BF5131E7E022200402934 /* ExploreCoursesViewController.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		AFC16A761E7229F9009C6186 = {
@@ -126,35 +168,13 @@
 		AFC16A811E7229F9009C6186 /* SchedFriend */ = {
 			isa = PBXGroup;
 			children = (
+				AFB34FB51E7F1661002BDFEE /* Model */,
 				AFB34FB41E7F1621002BDFEE /* Intro Tutorial */,
-				AF8513681E7E56D40034C894 /* PageOneViewController.swift */,
-				AF85136A1E7E56EC0034C894 /* PageTwoViewController.swift */,
-				AF8513621E7E4D410034C894 /* TutorialViewController.swift */,
-				AF4BF5171E7E2BD300402934 /* ClassLocation.swift */,
-				AF4BF5151E7E29FE00402934 /* MapViewController.swift */,
-				AFB7D1791E7CF825004FFF28 /* SearchViewController.swift */,
-				AF6F059B1E79B16E00C00E94 /* SchedFriendLoginViewController.swift */,
-				AF42B0EC1E732D5900C7F24D /* ProfileViewController.swift */,
-				AF5F21B91E7B37BD005B7B5F /* EditClassesViewController.swift */,
-				AFB7D17B1E7D2671004FFF28 /* FriendClassesViewController.swift */,
-				AF56F8671E7A5A6F0092D6CF /* User.swift */,
-				AF56F8691E7A5B0D0092D6CF /* UserProfile.swift */,
-				AF42B0F21E732DE800C7F24D /* SettingsViewController.swift */,
-				AF6426AE1E72360200821378 /* SchedFriend.entitlements */,
-				AFC16A821E7229F9009C6186 /* AppDelegate.swift */,
-				AF6F058A1E78AE8B00C00E94 /* CreateAccountViewController.swift */,
-				AF6F05881E78ABD100C00E94 /* DataService.swift */,
+				AFB34FB61E7F1673002BDFEE /* Permissions */,
+				AFB34FB81E7F1717002BDFEE /* View Controllers */,
+				AFB34FB71E7F16D6002BDFEE /* Supporting Files */,
 				AFC16A881E7229F9009C6186 /* Main.storyboard */,
-				AF81A8781E7E849000D1DEE7 /* PageThreeViewController.swift */,
-				AF81A87A1E7E84A300D1DEE7 /* PageFourViewController.swift */,
-				AF81A87C1E7E84B900D1DEE7 /* PageFiveViewController.swift */,
-				AF4BF5131E7E022200402934 /* ExploreCoursesViewController.swift */,
-				AF68E8921E7DD7D3003A779B /* AddClassEventViewController.swift */,
-				AF0E332C1E78AAC900ABD3D1 /* Constants.swift */,
-				AFC16A8B1E7229F9009C6186 /* Assets.xcassets */,
 				AFC16A8D1E7229F9009C6186 /* LaunchScreen.storyboard */,
-				AFC16A901E7229F9009C6186 /* Info.plist */,
-				AF6F05971E793FB300C00E94 /* GoogleService-Info.plist */,
 			);
 			path = SchedFriend;
 			sourceTree = "<group>";
@@ -311,20 +331,16 @@
 				AF81A8791E7E849000D1DEE7 /* PageThreeViewController.swift in Sources */,
 				AF8513691E7E56D40034C894 /* PageOneViewController.swift in Sources */,
 				AF42B0ED1E732D5900C7F24D /* ProfileViewController.swift in Sources */,
-				AF6F05891E78ABD100C00E94 /* DataService.swift in Sources */,
 				AF56F86A1E7A5B0D0092D6CF /* UserProfile.swift in Sources */,
-				AF0E332D1E78AAC900ABD3D1 /* Constants.swift in Sources */,
 				AF85136B1E7E56EC0034C894 /* PageTwoViewController.swift in Sources */,
 				AF81A87D1E7E84B900D1DEE7 /* PageFiveViewController.swift in Sources */,
 				AF5F21BA1E7B37BD005B7B5F /* EditClassesViewController.swift in Sources */,
-				AF6F058B1E78AE8B00C00E94 /* CreateAccountViewController.swift in Sources */,
 				AFB7D17A1E7CF825004FFF28 /* SearchViewController.swift in Sources */,
 				AF4BF5141E7E022200402934 /* ExploreCoursesViewController.swift in Sources */,
 				AF56F8681E7A5A6F0092D6CF /* User.swift in Sources */,
 				AF81A87B1E7E84A300D1DEE7 /* PageFourViewController.swift in Sources */,
 				AFC16A831E7229F9009C6186 /* AppDelegate.swift in Sources */,
 				AF6F059C1E79B16E00C00E94 /* SchedFriendLoginViewController.swift in Sources */,
-				AF42B0F31E732DE800C7F24D /* SettingsViewController.swift in Sources */,
 				AFB7D17C1E7D2671004FFF28 /* FriendClassesViewController.swift in Sources */,
 				AF8513631E7E4D410034C894 /* TutorialViewController.swift in Sources */,
 				AF4BF5181E7E2BD400402934 /* ClassLocation.swift in Sources */,

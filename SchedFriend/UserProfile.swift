@@ -5,6 +5,7 @@
 //  Created by Akshay Ramaswamy on 3/15/17.
 //  Copyright © 2017 Akshay Ramaswamy. All rights reserved.
 //
+// This file creates and object for customized user data (ID, name, classes, profile picture)
 
 import Foundation
 

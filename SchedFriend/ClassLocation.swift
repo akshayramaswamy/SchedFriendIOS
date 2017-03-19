@@ -5,6 +5,9 @@
 //  Created by Akshay Ramaswamy on 3/18/17.
 //  Copyright © 2017 Akshay Ramaswamy. All rights reserved.
 //
+// This file creates an object to store class locationa and annotations for it
+// Extension written to access apple maps when accessory is clicked and create route from current
+// location to your class
 
 import Foundation
 import MapKit

@@ -5,7 +5,7 @@
 //  Created by Akshay Ramaswamy on 3/17/17.
 //  Copyright © 2017 Akshay Ramaswamy. All rights reserved.
 //
-
+// This file uses search controller to allow the user to search a class and see the other students in the class
 
 import UIKit
 import Firebase
@@ -36,7 +36,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
-        
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
@@ -58,7 +57,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell 	{
         let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "cell")
-        
         cell.textLabel?.text = self.filteredClasses[indexPath.row].name
         cell.detailTextLabel?.text = self.filteredClasses[indexPath.row].department
         

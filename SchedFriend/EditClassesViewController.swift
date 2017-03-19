@@ -5,6 +5,8 @@
 //  Created by Akshay Ramaswamy on 3/16/17.
 //  Copyright © 2017 Akshay Ramaswamy. All rights reserved.
 //
+//  This file allows the user to add classes to their schedule using a UIPicker
+//  and sends notifications to the parent view controller to update the user's schedule in realtime
 
 import UIKit
 import Firebase
@@ -22,43 +24,32 @@ class EditClassesViewController: UIViewController, UIPickerViewDelegate, UIPicke
     let ref = FIRDatabase.database().reference()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Connect data:
         self.classPicker.delegate = self
         self.classPicker.dataSource = self
-        
-        // Input data into the Array:
         pickerData = ["CS221", "CS229", "CS193P", "PHIL2", "MATH51", "ECON1", "CS274"]
-        FIRAuth.auth()!.addStateDidChangeListener { auth, user in
+        FIRAuth.auth()!.addStateDidChangeListener { [weak self] auth, user in
             guard let user = user else { return }
-            self.user = User(authData: user)
-            
-            //self.userRef = self.rootRef.child(self.user.uid)
-            print(self.user.uid)
+            self?.user = User(authData: user)
+
         }
-        // Do any additional setup after loading the view.
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     @IBAction func addFallClasses(_ sender: UIButton) {
         var fallClasses:[String]?
         let userRef  = ref.child(self.user.uid)
         
-        userRef.queryOrdered(byChild: "uid").observeSingleEvent(of: .value, with: { snapshot in
+        userRef.queryOrdered(byChild: "uid").observeSingleEvent(of: .value, with: { [weak self] snapshot in
             if let retrievedFallClasses = (snapshot.childSnapshot(forPath: "fallClasses").value as? Array<String>){
-                if (!((retrievedFallClasses.contains(self.selectedPick)))){
+                if (!((retrievedFallClasses.contains((self?.selectedPick)!)))){
                     fallClasses = retrievedFallClasses
-                    fallClasses?.append(self.selectedPick)
+                    fallClasses?.append((self?.selectedPick)!)
                     
                 } else {
                     fallClasses = retrievedFallClasses
                 }
             } else{
-                fallClasses = [self.selectedPick]
+                fallClasses = [(self?.selectedPick)!]
             }
             
             userRef.updateChildValues(["fallClasses":fallClasses ?? "No class"], withCompletionBlock: { (error, snapshot) in
@@ -71,8 +62,8 @@ class EditClassesViewController: UIViewController, UIPickerViewDelegate, UIPicke
                 
             })
             
-            //get first and last name of user
-            self.addToDB(snapshot: snapshot)
+            //get first and last name of user, add under class name
+            self?.addToDB(snapshot: snapshot)
             
             
             
@@ -85,17 +76,17 @@ class EditClassesViewController: UIViewController, UIPickerViewDelegate, UIPicke
     @IBAction func addWinterClasses(_ sender: UIButton) {
         var winterClasses:[String]?
         let userRef  = ref.child(self.user.uid)
-        userRef.queryOrdered(byChild: "uid").observeSingleEvent(of: .value, with: { snapshot in
+        userRef.queryOrdered(byChild: "uid").observeSingleEvent(of: .value, with: { [weak self] snapshot in
             if let retrievedWinterClasses = (snapshot.childSnapshot(forPath: "winterClasses").value as? Array<String>){
-                if (!((retrievedWinterClasses.contains(self.selectedPick)))){
+                if (!((retrievedWinterClasses.contains((self?.selectedPick)!)))){
                     winterClasses = retrievedWinterClasses
-                    winterClasses?.append(self.selectedPick)
+                    winterClasses?.append((self?.selectedPick)!)
                     
                 } else {
                     winterClasses = retrievedWinterClasses
                 }
             } else{
-                winterClasses = [self.selectedPick]
+                winterClasses = [(self?.selectedPick)!]
             }
             
             userRef.updateChildValues(["winterClasses":winterClasses ?? "No class"], withCompletionBlock: { (error, snapshot) in
@@ -107,24 +98,24 @@ class EditClassesViewController: UIViewController, UIPickerViewDelegate, UIPicke
                 }
                 
             })
-            self.addToDB(snapshot: snapshot)
+            self?.addToDB(snapshot: snapshot)
         })
     }
     
     @IBAction func addSpringClasses(_ sender: UIButton) {
         var springClasses:[String]?
         let userRef  = ref.child(self.user.uid)
-        userRef.queryOrdered(byChild: "uid").observeSingleEvent(of: .value, with: { snapshot in
+        userRef.queryOrdered(byChild: "uid").observeSingleEvent(of: .value, with: { [weak self] snapshot in
             if let retrievedSpringClasses = (snapshot.childSnapshot(forPath: "springClasses").value as? Array<String>){
-                if (!((retrievedSpringClasses.contains(self.selectedPick)))){
+                if (!((retrievedSpringClasses.contains((self?.selectedPick)!)))){
                     springClasses = retrievedSpringClasses
-                    springClasses?.append(self.selectedPick)
+                    springClasses?.append((self?.selectedPick)!)
                     
                 } else {
                     springClasses = retrievedSpringClasses
                 }
             } else{
-                springClasses = [self.selectedPick]
+                springClasses = [(self?.selectedPick)!]
             }
             
             userRef.updateChildValues(["springClasses":springClasses ?? "No class"], withCompletionBlock: { (error, snapshot) in
@@ -137,10 +128,11 @@ class EditClassesViewController: UIViewController, UIPickerViewDelegate, UIPicke
                 
             })
             
-            self.addToDB(snapshot: snapshot)
+            self?.addToDB(snapshot: snapshot)
         })
     }
     
+    //add user's name to list of people in class they added
     func addToDB(snapshot:FIRDataSnapshot){
         
         let classRef = ref.child(self.selectedPick)
@@ -176,6 +168,7 @@ class EditClassesViewController: UIViewController, UIPickerViewDelegate, UIPicke
         
     }
     
+    /* Setup for using UIPickerView */
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -184,14 +177,11 @@ class EditClassesViewController: UIViewController, UIPickerViewDelegate, UIPicke
         return pickerData.count
     }
     
-    // The data to return for the row and component (column) that's being passed in
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerData[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        // This method is triggered whenever the user makes a change to the picker selection.
-        // The parameter named row and component represents what was selected.
         self.selectedPick = pickerData[row]
         
     }
@@ -200,14 +190,6 @@ class EditClassesViewController: UIViewController, UIPickerViewDelegate, UIPicke
         let str = pickerData[row]
         return NSAttributedString(string: str, attributes: [NSForegroundColorAttributeName:UIColor.white])
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+
     
 }
